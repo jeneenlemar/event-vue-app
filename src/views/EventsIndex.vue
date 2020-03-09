@@ -7,6 +7,9 @@
       <p> Title: {{ event.title }}</p>
       <p> About: {{ event.short_description }}</p>
       <p> Date/Time: {{ event.time_start }}</p>
+      <router-link :to="`/events/${event.id}`">Details</router-link> <br>
+      <!-- ACTIVATE line 11 when edit is created!!!!! -->
+      <!-- <router-link :to="`/events/${event.id}/edit`">Edit</router-link> -->
     </div>
 
     <div v-for="category in categories">

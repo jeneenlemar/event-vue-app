@@ -7,6 +7,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import EventsIndex from "../views/EventsIndex.vue";
 import EventsNew from "../views/EventsNew.vue";
+import EventsShow from "../views/EventsShow.vue";
 
 
 
@@ -50,6 +51,12 @@ const routes = [
     name: "events-new", 
     component: EventsNew
   },
+  { 
+    path: "/events/:id", 
+    name: "events-show", 
+    component: EventsShow
+  },
+
 ];
 
 const router = new VueRouter({
