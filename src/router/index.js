@@ -6,6 +6,7 @@ import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import EventsIndex from "../views/EventsIndex.vue";
+import EventsNew from "../views/EventsNew.vue";
 
 
 
@@ -43,6 +44,11 @@ const routes = [
     path: "/events", 
     name: "events-index", 
     component: EventsIndex
+  },
+  { 
+    path: "/events/new", 
+    name: "events-new", 
+    component: EventsNew
   },
 ];
 

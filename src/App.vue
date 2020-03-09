@@ -7,6 +7,8 @@
       <router-link to="/login">Login</router-link> |
       <router-link to="/logout">Logout</router-link> |
       <router-link to="/events">My Parties</router-link> |
+      <router-link to="/events/new">Host a Party</router-link> |
+
 
     </div>
     <router-view/>
