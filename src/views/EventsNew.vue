@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
           <label>Short Description:</label>
-          <input type="text" class="form-control" v-model="short_description">
+          <input type="text" class="form-control" v-model="shortDescription">
         </div>
         <div class="form-group">
           <label>Details:</label>
@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
           <label>Date and Time:</label>
-          <input type="datetime" class="form-control" v-model="time_start">
+          <input type="datetime" class="form-control" v-model="timeStart">
         </div>
         <div class="form-group">
           <label>Duration:</label>
@@ -29,15 +29,15 @@
         </div>
         <div class="form-group">
           <label>Category:</label>
-          <input type="integer" class="form-control" v-model="category_id">
+          <input type="integer" class="form-control" v-model="categoryId">
         </div>
         <div class="form-group">
           <label>Kit Price:</label>
-          <input type="decimal" class="form-control" v-model="kit_price">
+          <input type="decimal" class="form-control" v-model="kitPrice">
         </div>
         <div class="form-group">
           <label>Location Description:</label>
-          <input type="text" class="form-control" v-model="location_description">
+          <input type="text" class="form-control" v-model="locationDescription">
         </div>
         <div class="form-group">
           <label>Address:</label>
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
           <label>Image URL:</label>
-          <input type="text" class="form-control" v-model="img_url">
+          <input type="text" class="form-control" v-model="imgUrl">
         </div>
         <div class="form-group">
           <label>Slots:</label>
@@ -65,15 +65,15 @@ export default {
   data: function() {
     return {
       title: "",
-      short_description: "",
+      shortDescription: "",
       details: "",
-      time_start: "",
+      timeStart: "",
       duration: "",
-      category_id: "",
-      kit_price: "",
-      location_description: "",
+      categoryId: "",
+      kitPrice: "",
+      locationDescription: "",
       address: "",
-      img_url: "",
+      imgUrl: "",
       slots: "",
       errors: [],
     };
@@ -82,14 +82,14 @@ export default {
     submit: function() {
       var params = {
         title: this.title,
-        short_description: this.short_description,
+        short_description: this.shortDescription,
         details: this.details,
         duration: this.duration,
-        category_id: this.category_id,
-        kit_price: this.kit_price,
-        location_description: this.location_description,
+        category_id: this.categoryId,
+        kit_price: this.kitPrice,
+        location_description: this.locationDescription,
         address: this.address,
-        img_url: this.img_url,
+        img_url: this.imgUrl,
         slots: this.slots,
       };
       axios
