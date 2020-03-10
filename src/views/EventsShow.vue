@@ -6,7 +6,7 @@
       <h2>Short Description: {{ event.short_description }}</h2>
       <!-- add additional here later once basic works! -->
     </div>
-    Host: {{ event.user_id }}<br>
+    Host: {{ event.host.first_name }}<br>
     
     <!-- Current User: {{ $parent.getUserId()}} <br> -->
     <!-- <router-link v-if="event.user_id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link> -->
