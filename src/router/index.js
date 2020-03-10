@@ -8,6 +8,7 @@ import Logout from "../views/Logout.vue";
 import EventsIndex from "../views/EventsIndex.vue";
 import EventsNew from "../views/EventsNew.vue";
 import EventsShow from "../views/EventsShow.vue";
+import EventsEdit from "../views/EventsEdit.vue";
 
 
 
@@ -56,6 +57,12 @@ const routes = [
     name: "events-show", 
     component: EventsShow
   },
+  { 
+    path: "/events/:id/edit", 
+    name: "events-edit", 
+    component: EventsEdit
+  },
+
 
 ];
 

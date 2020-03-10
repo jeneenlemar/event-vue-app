@@ -1,0 +1,103 @@
+<template>
+  <div class="events-edit">
+    <div class="container">
+      <form v-on:submit.prevent="submit()">
+        <h1>Update Party</h1>
+        <img v-if="errors.length" src="https://http.cat/100">
+        <ul>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        </ul>
+        <div class="form-group">
+          <label>Title:</label> 
+          <input type="text" class="form-control" v-model="event.title">
+        </div>
+        <div class="form-group">
+          <label>Short Description:</label>
+          <input type="text" class="form-control" v-model="event.short_description">
+        </div>
+        <div class="form-group">
+          <label>Details:</label>
+          <input type="text" class="form-control" v-model="event.details">
+        </div>
+        <div class="form-group">
+          <label>Date and Time:</label>
+          <input type="datetime" class="form-control" v-model="event.time_start">
+        </div>
+        <div class="form-group">
+          <label>Duration:</label>
+          <input type="integer" class="form-control" v-model="event.duration">
+        </div>
+        <div class="form-group">
+          <label>Category:</label>
+          <input type="integer" class="form-control" v-model="event.category_id">
+        </div>
+        <div class="form-group">
+          <label>Kit Price:</label>
+          <input type="decimal" class="form-control" v-model="event.kit_price">
+        </div>
+        <div class="form-group">
+          <label>Location Description:</label>
+          <input type="text" class="form-control" v-model="event.location_description">
+        </div>
+        <div class="form-group">
+          <label>Address:</label>
+          <input type="text" class="form-control" v-model="event.address">
+        </div>
+        <div class="form-group">
+          <label>Image URL:</label>
+          <input type="text" class="form-control" v-model="event.img_url">
+        </div>
+        <div class="form-group">
+          <label>Slots:</label>
+          <input type="integer" class="form-control" v-model="event.slots">
+        </div>
+        
+        <input type="submit" class="btn btn-primary" value="Update Event">
+      </form>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data: function() {
+    return {
+      event: {},
+      errors: [],
+    };
+  },
+  created: function() {
+    axios.get(`/api/events/${this.$route.params.id}`).then(response => {
+      console.log(response.data);
+      this.event = response.data;
+    });
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        title: this.event.title,
+        short_description: this.event.short_description,
+        details: this.event.details,
+        duration: this.event.duration,
+        category_id: this.event.category_id,
+        kit_price: this.event.kit_price,
+        location_description: this.event.location_description,
+        address: this.event.address,
+        img_url: this.event.img_url,
+        slots: this.event.slots,
+      };
+      axios
+        .patch(`/api/events/${this.event.id}`, params)
+        .then(response => {
+          this.$router.push(`/events/${this.event.id}`);
+        })
+        .catch(error => {
+          console.log(error.response);
+          this.errors = error.response.data.errors;
+        });
+    }
+  }
+};
+</script>
