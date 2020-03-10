@@ -1,7 +1,5 @@
-
-
 <template>
-  <div class="events-index">
+  <div class="user_events-index">
     <h1>{{ message }}</h1>
     <div v-for="event in events">
       <p> Title: {{ event.title }}</p>
@@ -30,17 +28,14 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      message: "Crafting Events List",
-      events: [],
-      categories: []
+      message: "Parties I'm Hosting",
+      message2: "Parties I'm Attending",
+      user_events: [],
     };
   },
   created: function() {
-    axios.get("/api/events").then(response => {
-      console.log(response.data); this.events = response.data;
-    });
-    axios.get("/api/categories").then(response => {
-      console.log(response.data); this.categories = response.data;
+    axios.get("/api/user_events").then(response => {
+      console.log(response.data); this.user_events = response.data;
     });
   },
 

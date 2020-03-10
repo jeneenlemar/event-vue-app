@@ -9,9 +9,8 @@ import EventsIndex from "../views/EventsIndex.vue";
 import EventsNew from "../views/EventsNew.vue";
 import EventsShow from "../views/EventsShow.vue";
 import EventsEdit from "../views/EventsEdit.vue";
-
-
-
+import CategoriesShow from "../views/CategoriesShow.vue";
+import UserEventsIndex from "../views/UserEventsIndex.vue";
 
 
 Vue.use(VueRouter);
@@ -61,6 +60,16 @@ const routes = [
     path: "/events/:id/edit", 
     name: "events-edit", 
     component: EventsEdit
+  },
+  { 
+    path: "/categories/:id", 
+    name: "categories-show", 
+    component: CategoriesShow
+  },
+  { 
+    path: "/user_events", 
+    name: "user_events-index", 
+    component: UserEventsIndex
   },
 
 

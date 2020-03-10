@@ -1,7 +1,6 @@
-
-
 <template>
-  <div class="events-index">
+  <div class="categories-show">
+
     <h1>{{ message }}</h1>
     <div v-for="event in events">
       <p> Title: {{ event.title }}</p>
@@ -12,12 +11,6 @@
       <!-- <router-link :to="`/events/${event.id}/edit`">Edit</router-link> -->
     </div>
 
-    <div v-for="category in categories">
-      <p>{{category.name}}</p>
-      <img v-bind:src="category.img_url" height="100" width="100">
-      <router-link :to="`/categories/${category.id}`">Go To Events For This Category</router-link> 
-      
-    </div>
   </div>
 </template>
 
@@ -30,17 +23,13 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      message: "Crafting Events List",
-      events: [],
-      categories: []
+      message: "Crafting Events List By Category",
+      events: []
     };
   },
   created: function() {
-    axios.get("/api/events").then(response => {
+    axios.get(`/api/categories/${this.$route.params.id}`).then(response => {
       console.log(response.data); this.events = response.data;
-    });
-    axios.get("/api/categories").then(response => {
-      console.log(response.data); this.categories = response.data;
     });
   },
 

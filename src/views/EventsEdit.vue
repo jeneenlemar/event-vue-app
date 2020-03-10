@@ -54,6 +54,10 @@
         
         <input type="submit" class="btn btn-primary" value="Update Event">
       </form>
+      <div>
+         <button v-on:click="destroyEvent()">Cancel This Event</button>
+      </div>
+     
     </div>
   </div>
 </template>
@@ -91,12 +95,18 @@ export default {
       axios
         .patch(`/api/events/${this.event.id}`, params)
         .then(response => {
-          this.$router.push(`/events/${this.event.id}`);
+          this.$router.push(`/api/events/${this.event.id}`);
         })
         .catch(error => {
           console.log(error.response);
           this.errors = error.response.data.errors;
         });
+    },
+    destroyEvent: function() {
+      axios.delete(`/api/events/${this.event.id}`).then(response => {
+        console.log(response.data);
+        this.$router.push("/my_parties");
+      });
     }
   }
 };

@@ -7,8 +7,11 @@
       <!-- add additional here later once basic works! -->
     </div>
     Host: {{ event.host.first_name }}<br>
+
+    <router-link :to="`/events/${event.id}/edit`">Edit</router-link>
+    <router-link :to="`/user_events/${user_event.id}`">Join This Party</router-link>
     
-    <!-- Current User: {{ $parent.getUserId()}} <br> -->
+   <!--  Current User: {{ $parent.getUserId()}} <br> -->
     <!-- <router-link v-if="event.user_id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link> -->
   </div>
 </template>
@@ -25,7 +28,7 @@ import axios from 'axios';
 export default {
   data: function() {
     return {
-      message: "Event Details",
+      message: "Party Details",
       event: {},
     };
   },
