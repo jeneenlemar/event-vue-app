@@ -13,10 +13,6 @@
           <input type="text" class="form-control" v-model="firstName">
         </div>
         <div class="form-group">
-          <label>Last Name:</label> 
-          <input type="text" class="form-control" v-model="lastName">
-        </div>
-        <div class="form-group">
           <label>Email:</label>
           <input type="email" class="form-control" v-model="email">
         </div>
@@ -41,7 +37,6 @@ export default {
   data: function() {
     return {
       firstName: "",
-      lastName: "",
       email: "",
       password: "",
       passwordConfirmation: "",
@@ -51,8 +46,7 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        first_name: this.firstName,
-        last_name: this.lastName,
+        first_name: this.firstName,    
         email: this.email,
         password: this.password,
         password_confirmation: this.passwordConfirmation
