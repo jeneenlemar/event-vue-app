@@ -1,16 +1,16 @@
 <template>
   <div class="user_events-index">
 
-    {{user_events}}
+
     <h1>{{ message }}</h1>
-    
-
+    {{user_events.hosting_events}}
+    <div v-for="hosting_event in user_events.hosting_events">
+      <p> <b>{{hosting_event.title}}</b></p>          
+    </div>
     <h1>{{message2}}</h1>
-    
+    {{user_events.attending_events}}
 
-    <!-- <div v-for="attending_event in attending_events">
-      <p> {{attending_event}}</p>          
-    </div> -->
+    
 
   </div>
 </template>
@@ -27,7 +27,6 @@ export default {
       message: "Parties I'm Hosting",
       message2: "Parties I'm Attending",
       user_events: {},
-      attending_events: []
     };
   },
   created: function() {
