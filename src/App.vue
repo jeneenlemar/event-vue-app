@@ -8,6 +8,8 @@
       <router-link to="/logout">Logout</router-link> |
       <router-link to="/events">All Parties List</router-link> |
       <router-link to="/events/new">Host a Party</router-link> |
+      <router-link to="/user_events">My Parties</router-link> |
+
 
 
     </div>
