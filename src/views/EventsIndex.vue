@@ -9,9 +9,10 @@
       <p> Date/Time: {{ event.time_start }}</p>
       <router-link :to="`/events/${event.id}`">Details</router-link> <br>
       <!-- ACTIVATE line 11 when edit is created!!!!! -->
-      <!-- <router-link :to="`/events/${event.id}/edit`">Edit</router-link> -->
+      
     </div>
 
+<h1>Categories</h1>
     <div v-for="category in categories">
       <p>{{category.name}}</p>
       <img v-bind:src="category.img_url" height="100" width="100">
@@ -30,7 +31,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      message: "Crafting Events List",
+      message: "Upcoming Parties",
       events: [],
       categories: []
     };

@@ -105,7 +105,7 @@ export default {
     destroyEvent: function() {
       axios.delete(`/api/events/${this.event.id}`).then(response => {
         console.log(response.data);
-        this.$router.push("/my_parties");
+        this.$router.push("/user_events");
       });
     }
   }

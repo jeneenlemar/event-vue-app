@@ -17,6 +17,23 @@
   </div>
 </template>
 
+<!-- <script>
+export default {
+  methods: {
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    getUserId: function() {
+      return localStorage.getItem("user_id");
+    }
+  }
+};
+</script> -->
+
 <style>
 /*#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
