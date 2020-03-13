@@ -1,18 +1,24 @@
 <template>
   <div class="events-show">
-    <h1>{{ message }}</h1>
-    <div>
-      <h2>Title: {{ event.title }}</h2>
-      <h2>Short Description: {{ event.short_description }}</h2>
-      <!-- add additional here later once basic works! -->
-    </div>
-    Host: {{ event.host.first_name }}<br>
 
-    <router-link :to="`/events/${event.id}/edit`">Edit</router-link>
-   
-    
-   <!--  Current User: {{ $parent.getUserId()}} <br> -->
-    <!-- <router-link v-if="event.user_id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link> -->
+    <h1>{{ message }}</h1>
+
+    <div v-if="event">
+      <h2>Title: {{ event.title }}</h2>
+      <p>Hosted by: {{ event.host.first_name }}</p>
+      
+      <p>Short Description: {{ event.short_description }}</p>
+      <p>Date & Time: {{ event.time_start }}</p>
+      <p>Price: {{ event.kit_price }}</p>
+      <p>Details: {{ event.details }}</p>
+      <p>Location: {{ event.location_description }}</p>
+      <p>Address: {{ event.address }}</p>
+      <button v-on:click="createUserEvent()">Join this Party</button>
+      <!-- fix this item and calculation!
+      <p>Slots Remaining: {{ event.slots - event.user_events.count }}</p> -->
+      <br>
+      <router-link :to="`/events/${event.id}/edit`">Edit</router-link>
+    </div>        
   </div>
 </template>
 
@@ -29,7 +35,7 @@ export default {
   data: function() {
     return {
       message: "Party Details",
-      event: {},
+      event: null
     };
   },
   created: function() {

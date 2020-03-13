@@ -34,6 +34,7 @@ export default {
       message: "Upcoming Parties",
       events: [],
       categories: []
+      
     };
   },
   created: function() {

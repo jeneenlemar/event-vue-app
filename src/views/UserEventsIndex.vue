@@ -2,30 +2,32 @@
   <div class="user_events-index">
     <div>
       <h1>{{ message }}</h1>
-      {{userEvents.hosting_events}}
+      <!-- {{userEvents.hosting_events}} -->
       <div v-for="hostingEvent in userEvents.hosting_events">
         <p><b>{{hostingEvent.title}}</b></p>
         <p>{{hostingEvent.id}}</p> 
         <p>{{hostingEvent.short_description}}</p>    
         <p>{{hostingEvent.time_start}}</p>
-        <button v-on:click="destroyEvent(hostingEvent)">Cancel This Event</button> 
         <div>
-          <button v-on:click="showEventDetails()">Details</button> 
-        </div>          
+          <router-link :to="`/events/${hostingEvent.id}`">Details</router-link> <br>
+          <router-link :to="`/events/${hostingEvent.id}/edit`">Edit</router-link>
+        </div> 
+        <button v-on:click="destroyEvent(hostingEvent)">Cancel This Event</button> 
       </div>
     </div>
     <div>
       <h1>{{message2}}</h1>
-      <p>{{userEvents.attending_events}}</p>
+      <!-- <p>{{userEvents.attending_events}}</p> -->
       <div v-for="attendingEvent in userEvents.attending_events">
         <p><b>{{attendingEvent.event.title}}</b></p> 
         <p>{{attendingEvent.event.id}}</p> 
         <p>{{attendingEvent.event.short_description}}</p> 
         <p>{{attendingEvent.event.time_start}}</p> 
-        <button v-on:click="destroyUserEvent(attendingEvent)">Cancel This Party Reservation</button>
         <div>
-          <button v-on:click="showEventDetails()">Details</button> 
-        </div>    
+          <router-link :to="`/events/${attendingEvent.event.id}`">Details</router-link> <br>
+          <router-link :to="`/events/${attendingEvent.event.id}/edit`">Edit</router-link>
+        </div>  
+        <button v-on:click="destroyUserEvent(attendingEvent)">Cancel This Party Reservation</button> 
       </div>
     </div> 
   </div>

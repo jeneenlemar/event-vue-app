@@ -9,6 +9,7 @@
       <router-link to="/events">All Parties List</router-link> |
       <router-link to="/events/new">Host a Party</router-link> |
       <router-link to="/user_events">My Parties</router-link> |
+      <router-link :to="`/user/${getUserId()}`">Profile</router-link> |
 
 
 
@@ -17,7 +18,7 @@
   </div>
 </template>
 
-<!-- <script>
+<script>
 export default {
   methods: {
     isLoggedIn: function() {
@@ -32,7 +33,7 @@ export default {
     }
   }
 };
-</script> -->
+</script>
 
 <style>
 /*#app {
