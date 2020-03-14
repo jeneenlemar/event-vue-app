@@ -10,8 +10,7 @@
       <router-link to="/events/new">Host a Party</router-link> |
       <router-link to="/user_events">My Parties</router-link> |
       <router-link :to="`/users/${getUserId()}`">Profile</router-link> |
-
-
+      <router-link :to="`/users/${getUserId()}/edit`">Update Profile</router-link> |
 
     </div>
     <router-view/>

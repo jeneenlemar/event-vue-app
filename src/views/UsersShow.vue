@@ -3,18 +3,14 @@
     <h1>{{ message }}</h1>
     <div>
       <p>{{user}}</p>
-      <!-- <h2>Title: {{ event.title }}</h2>
-      <p>Hosted by: {{ event.host.first_name }}</p>
+      <h2>{{ user.first_name }} {{user.last_name}}</h2>
+      <p>Email: {{ user.email }}</p>      
+      <p>Address: {{ user.address }}</p>
+      <p>profile_img: {{ user.profile_img }}</p>
       
-      <p>Short Description: {{ event.short_description }}</p>
-      <p>Date & Time: {{ event.time_start }}</p>
-      <p>Price: {{ event.kit_price }}</p>
-      <p>Details: {{ event.details }}</p>
-      <p>Location: {{ event.location_description }}</p>
-      <p>Address: {{ event.address }}</p>
-      <button v-on:click="createUserEvent()">Join this Party</button> -->
-      <!-- fix this item and calculation!
-      <p>Slots Remaining: {{ event.slots - event.user_events.count }}</p> -->
+      <p></p>
+      <router-link :to="`/users/${user.id}/edit`">Edit User</router-link>
+      
       <br>
     </div>
    
