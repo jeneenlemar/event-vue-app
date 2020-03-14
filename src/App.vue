@@ -9,7 +9,7 @@
       <router-link to="/events">All Parties List</router-link> |
       <router-link to="/events/new">Host a Party</router-link> |
       <router-link to="/user_events">My Parties</router-link> |
-      <router-link :to="`/user/${getUserId()}`">Profile</router-link> |
+      <router-link :to="`/users/${getUserId()}`">Profile</router-link> |
 
 
 
