@@ -4,6 +4,7 @@
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <h1>Update Profile</h1>
+        {{user}}
         <img v-if="errors.length" src="https://http.cat/100">
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -64,9 +65,10 @@ export default {
         profile_img: this.user.profile_img
       };
       axios
-        .patch(`/api/users/${this.user.id}`, params)
+        .patch(`/api/users/${this.user.user_id}`, params)
         .then(response => {
-          this.$router.push(`/api/users/${this.user.id}`);
+          console.log("Successful Update", response.data);
+          this.$router.push(`/api/users/${this.user.user_id}`);
         })
         .catch(error => {
           console.log(error.response);
