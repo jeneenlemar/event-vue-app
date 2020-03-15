@@ -44,7 +44,23 @@ export default {
       this.event = response.data;
     });
   },
-  methods: {}
+  methods: {
+    createUserEvent: function() {
+      var params = {
+        event_id: this.event.id
+      };
+      axios
+        .post("/api/user_events", params)
+        .then(response => {
+          console.log("Party Reservation Accepted", response.data);
+          this.$router.push("/user_events");
+        })
+        .catch(error => {
+          console.log(error.response);
+          this.errors = error.response.data.errors;
+        });
+    }
+  }
     
 };
 </script>
