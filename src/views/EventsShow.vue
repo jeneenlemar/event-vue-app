@@ -16,11 +16,11 @@
       <p>Address: {{ event.address }}</p>
       <p>hostid: {{event.host.id}}</p>
       <p>Slots Remaining: {{ event.slots - event.attendees.length }}</p>
-      <!-- <p>Slots: {{event.slots}}, {{typeof event.slots}}</p>
-      <p>Slots for user events: {{event.attendees.length}}, {{typeof event.attendees.length}}</p> -->
+      
       
       <button v-if="!event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Join this Party</button>
-      <button v-if="event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Cancel this reservation</button>
+      <button v-if="event.attending && (event.host.id != $parent.getUserId())" v-on:click="destroyReservation">Cancel this reservation</button>
+      <!-- BUTTO"N ON LINE 23 WILL NOT WORK YET, FIX THE method -->
       
       
       <br>
@@ -60,12 +60,26 @@ export default {
         .post("/api/user_events", params)
         .then(response => {
           console.log("Party Reservation Accepted", response.data);
-          this.$router.push("/user_events");
+          this.event.attending = true;
+          this.event.attendees.push(response.data.attendee);
         })
         .catch(error => {
           console.log(error.response);
           this.errors = error.response.data.errors;
         });
+    },
+    destroyReservation: function() {
+      if (confirm("Are you sure you want to cancel this reservation?")) {
+        axios.delete(`api/user_events/${this.event.id}`).then(response => {
+          console.log("This reservation has been cancelled", response.data);
+          this.event.attending = false;
+          var index = this.event.attendees.findIndex(user => user.id == this.$parent.getUserId());
+          console.log(index);
+          this.event.attendees.splice(index, 1);
+        });
+
+      }
+
     }
   }
     

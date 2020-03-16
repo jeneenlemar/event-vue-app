@@ -9,6 +9,8 @@
         <p>{{hostingEvent.short_description}}</p>    
         <p>Start{{hostingEvent.time_start}}</p>
         <p>Slots: {{hostingEvent.slots}}</p>
+        
+        <p> Slots Remaining: </p>
 
         <div>
           <router-link :to="`/events/${hostingEvent.id}`">Details</router-link> <br>
@@ -67,9 +69,8 @@ export default {
       }
       
     },
-    destroyUserEvent: function(attendingEvent) {
-      var result = confirm("Are you sure you want to cancel this reservation?");
-      if (result) {
+    destroyUserEvent: function(attendingEvent) { 
+      if (confirm("Are you sure you want to cancel this reservation?")) {
         axios.delete(`api/user_events/${attendingEvent.id}`).then(response => {
           console.log("Reservation Cancellation Successful", response.data);
           var index = this.userEvents.attending_events.indexOf(attendingEvent);
