@@ -58,12 +58,15 @@ export default {
   
   methods: {
     destroyEvent: function(hostingEvent) {
-      confirm("Are you sure you want to cancel this event?");
-      axios.delete(`api/events/${hostingEvent.id}`).then(response => {
-        console.log("Cancellation Successful", response.data);
-        var index = this.userEvents.hosting_events.indexOf(hostingEvent);
-        this.userEvents.hosting_events.splice(index, 1);
-      });
+      var result = confirm("Are you sure you want to cancel this event?");
+      if (result) {
+        axios.delete(`api/events/${hostingEvent.id}`).then(response => {
+          console.log("Cancellation Successful", response.data);
+          var index = this.userEvents.hosting_events.indexOf(hostingEvent);
+          this.userEvents.hosting_events.splice(index, 1);
+        });
+      }
+      
     },
     destroyUserEvent: function(attendingEvent) {
       var result = confirm("Are you sure you want to cancel this reservation?");
