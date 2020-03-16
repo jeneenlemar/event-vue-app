@@ -49,7 +49,7 @@ export default {
   methods: {
     createUserEvent: function() {
       var params = {
-        event_i: this.event.id
+        event_id: this.event.id
       };
       axios
         .post("/api/user_events", params)

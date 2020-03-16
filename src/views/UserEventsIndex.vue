@@ -66,12 +66,15 @@ export default {
       });
     },
     destroyUserEvent: function(attendingEvent) {
-      confirm("Are you sure you want to cancel this event?");
-      axios.delete(`api/user_events/${attendingEvent.id}`).then(response => {
-        console.log("Reservation Cancellation Successful", response.data);
-        var index = this.userEvents.attending_events.indexOf(attendingEvent);
-        this.userEvents.attending_events.splice(index, 1);
-      });
+      var result = confirm("Are you sure you want to cancel this reservation?");
+      if (result) {
+        axios.delete(`api/user_events/${attendingEvent.id}`).then(response => {
+          console.log("Reservation Cancellation Successful", response.data);
+          var index = this.userEvents.attending_events.indexOf(attendingEvent);
+          this.userEvents.attending_events.splice(index, 1);
+        });
+      }
+      
     },
   }
 };
