@@ -15,7 +15,7 @@
       <p>Location: {{ event.location_description }}</p>
       <p>Address: {{ event.address }}</p>
       <p>hostid: {{event.host.user_id}}</p>
-      <button v-if="event.host.user_id == $parent.getUserId()" v-on:click="createUserEvent()">Join this Party</button>
+      <button v-if="event.host.user_id != $parent.getUserId()" v-on:click="createUserEvent()">Join this Party</button>
       
       <!-- <p>Slots Remaining: {{ event.slots - event.user_events }}</p> -->
       <br>
