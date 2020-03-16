@@ -7,7 +7,9 @@
         <p><b>{{hostingEvent.title}}</b></p>
         <p>{{hostingEvent.id}}</p> 
         <p>{{hostingEvent.short_description}}</p>    
-        <p>{{hostingEvent.time_start}}</p>
+        <p>Start{{hostingEvent.time_start}}</p>
+        <p>Slots: {{hostingEvent.slots}}</p>
+
         <div>
           <router-link :to="`/events/${hostingEvent.id}`">Details</router-link> <br>
           <router-link :to="`/events/${hostingEvent.id}/edit`">Edit</router-link>

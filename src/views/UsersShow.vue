@@ -9,7 +9,7 @@
       <p>profile_img: {{ user.profile_img }}</p>
       
       <p></p>
-      <router-link :to="`/users/${user.id}/edit`">Edit User</router-link>
+      <router-link :to="`/users/${user.user_id}/edit`">Edit User</router-link>
       
       <br>
     </div>

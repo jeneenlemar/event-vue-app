@@ -7,6 +7,7 @@
       <p> Title: {{ event.title }}</p>
       <p> About: {{ event.short_description }}</p>
       <p> Date/Time: {{ event.time_start }}</p>
+      <!-- <p> Slots Remaining: {{ event.slots - event.user_events.count }}</p> -->
       <router-link :to="`/events/${event.id}`">Details</router-link> <br>
       <!-- ACTIVATE line 11 when edit is created!!!!! -->
       

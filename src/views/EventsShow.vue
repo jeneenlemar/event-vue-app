@@ -4,6 +4,7 @@
     <h1>{{ message }}</h1>
 
     <div v-if="event">
+      {{event}}
       <h2>Title: {{ event.title }}</h2>
       <p>Hosted by: {{ event.host.first_name }}</p>
       
@@ -13,11 +14,12 @@
       <p>Details: {{ event.details }}</p>
       <p>Location: {{ event.location_description }}</p>
       <p>Address: {{ event.address }}</p>
-      <button v-on:click="createUserEvent()">Join this Party</button>
-      <!-- fix this item and calculation!
-      <p>Slots Remaining: {{ event.slots - event.user_events.count }}</p> -->
+      <p>hostid: {{event.host.user_id}}</p>
+      <button v-if="event.host.user_id == $parent.getUserId()" v-on:click="createUserEvent()">Join this Party</button>
+      
+      <!-- <p>Slots Remaining: {{ event.slots - event.user_events }}</p> -->
       <br>
-      <router-link :to="`/events/${event.id}/edit`">Edit</router-link>
+      <router-link v-if="event.host.user_id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link>
     </div>        
   </div>
 </template>
@@ -47,7 +49,7 @@ export default {
   methods: {
     createUserEvent: function() {
       var params = {
-        event_id: this.event.id
+        event_i: this.event.id
       };
       axios
         .post("/api/user_events", params)
