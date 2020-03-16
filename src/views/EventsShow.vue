@@ -14,10 +14,15 @@
       <p>Details: {{ event.details }}</p>
       <p>Location: {{ event.location_description }}</p>
       <p>Address: {{ event.address }}</p>
-      <p>hostid: {{event.host.user_id}}</p>
-      <button v-if="event.host.user_id != $parent.getUserId()" v-on:click="createUserEvent()">Join this Party</button>
+      <p>hostid: {{event.host.id}}</p>
+      <p>Slots Remaining: {{ event.slots - event.attendees.length }}</p>
+      <!-- <p>Slots: {{event.slots}}, {{typeof event.slots}}</p>
+      <p>Slots for user events: {{event.attendees.length}}, {{typeof event.attendees.length}}</p> -->
       
-      <!-- <p>Slots Remaining: {{ event.slots - event.user_events }}</p> -->
+      <button v-if="!event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Join this Party</button>
+      <button v-if="event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Cancel this reservation</button>
+      
+      
       <br>
       <router-link v-if="event.host.user_id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link>
     </div>        

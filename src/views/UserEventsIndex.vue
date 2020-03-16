@@ -58,8 +58,7 @@ export default {
   
   methods: {
     destroyEvent: function(hostingEvent) {
-      var result = confirm("Are you sure you want to cancel this event?");
-      if (result) {
+      if (confirm("Are you sure you want to cancel this event?")) {
         axios.delete(`api/events/${hostingEvent.id}`).then(response => {
           console.log("Cancellation Successful", response.data);
           var index = this.userEvents.hosting_events.indexOf(hostingEvent);
