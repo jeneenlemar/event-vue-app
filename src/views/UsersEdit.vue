@@ -30,12 +30,11 @@
           <input type="text" class="form-control" v-model="user.profile_img">
         </div>        
         <input type="submit" class="btn btn-primary" value="Update Profile">
-        <div>
+      </form>
+      <div>
          <button v-on:click="destroyUser()">Delete My Account</button>
       </div>
-      </form>
     </div>
-
   </div>
 </template>
 

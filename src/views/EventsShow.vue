@@ -6,6 +6,7 @@
     <div v-if="event">
       {{event}}
       <h2>Title: {{ event.title }}</h2>
+      <img v-bind:src="event.img_url" height="100" width="100">
       <p>Hosted by: {{ event.host.first_name }}</p>
       
       <p>Short Description: {{ event.short_description }}</p>
@@ -15,6 +16,13 @@
       <p>Location: {{ event.location_description }}</p>
       <p>Address: {{ event.address }}</p>
       <p>hostid: {{event.host.id}}</p>
+
+      {{event.attendees}}
+      <h2>Attendee List</h2>
+      <div v-for="attendee in event.attendees">
+        {{attendee.first_name}} 
+      </div>
+      
       <p>Slots Remaining: {{ event.slots - event.attendees.length }}</p>
       
       
@@ -42,7 +50,8 @@ export default {
   data: function() {
     return {
       message: "Party Details",
-      event: null
+      event: null,
+      attendee: {}
     };
   },
   created: function() {

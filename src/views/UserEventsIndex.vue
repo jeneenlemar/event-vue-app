@@ -2,15 +2,15 @@
   <div class="user_events-index">
     <div>
       <h1>{{ message }}</h1>
-      <!-- {{userEvents.hosting_events}} -->
+      {{userEvents.hosting_events}}
       <div v-for="hostingEvent in userEvents.hosting_events">
         <p><b>{{hostingEvent.title}}</b></p>
         <p>{{hostingEvent.id}}</p> 
         <p>{{hostingEvent.short_description}}</p>    
-        <p>Start{{hostingEvent.time_start}}</p>
-        <p>Slots: {{hostingEvent.slots}}</p>
-        
-        <p> Slots Remaining: </p>
+        <p>Start: {{hostingEvent.time_start}}</p>
+        <!-- <p>Slots: {{hostingEvent.slots}}</p>
+
+        <p> Slots Remaining: </p> -->
 
         <div>
           <router-link :to="`/events/${hostingEvent.id}`">Details</router-link> <br>
@@ -29,9 +29,9 @@
         <p>{{attendingEvent.event.time_start}}</p> 
         <div>
           <router-link :to="`/events/${attendingEvent.event.id}`">Details</router-link> <br>
-          <router-link :to="`/events/${attendingEvent.event.id}/edit`">Edit</router-link>
+          
         </div>  
-        <button v-on:click="destroyUserEvent(attendingEvent)">Cancel This Party Reservation</button> 
+        <!-- <button v-on:click="destroyUserEvent(attendingEvent)">Cancel This Party Reservation</button>  -->
       </div>
     </div> 
   </div>

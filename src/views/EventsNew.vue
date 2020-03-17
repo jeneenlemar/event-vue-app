@@ -95,7 +95,7 @@ export default {
       axios
         .post("/api/events", params)
         .then(response => {
-          this.$router.push("/events");
+          this.$router.push("/user_events");
         })
         .catch(error => {
           console.log(error.response);

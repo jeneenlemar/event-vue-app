@@ -95,7 +95,7 @@ export default {
       axios
         .patch(`/api/events/${this.event.id}`, params)
         .then(response => {
-          this.$router.push(`/api/events/${this.event.id}`);
+          this.$router.push(`/events/${this.event.id}`);
         })
         .catch(error => {
           console.log(error.response);
