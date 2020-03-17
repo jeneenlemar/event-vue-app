@@ -2,14 +2,14 @@
   <div class="users-show">
     <h1>{{ message }}</h1>
     <div>
-      <p>{{user}}</p>
+      <p>{{ user }}</p>
+      <p>{{ user.id }}</p>
       <h2>{{ user.first_name }} {{user.last_name}}</h2>
       <p>Email: {{ user.email }}</p>      
       <p>Address: {{ user.address }}</p>
       <p>profile_img: {{ user.profile_img }}</p>
       
-      <p></p>
-      <router-link :to="`/users/${user.user_id}/edit`">Edit User</router-link>
+      <router-link :to="`/users/${user.id}/edit`">Edit User</router-link>
       
       <br>
     </div>

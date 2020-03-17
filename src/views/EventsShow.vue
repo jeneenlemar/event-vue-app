@@ -20,7 +20,7 @@
       
       <button v-if="!event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Join this Party</button>
       <button v-if="event.attending && (event.host.id != $parent.getUserId())" v-on:click="destroyReservation">Cancel this reservation</button>
-      <!-- BUTTO"N ON LINE 23 WILL NOT WORK YET, FIX THE method -->
+      
       
       
       <br>

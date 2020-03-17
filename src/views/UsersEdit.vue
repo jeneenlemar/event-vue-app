@@ -65,10 +65,10 @@ export default {
         profile_img: this.user.profile_img
       };
       axios
-        .patch(`/api/users/${this.user.user_id}`, params)
+        .patch(`/api/users/${this.user.id}`, params)
         .then(response => {
           console.log("Successful Update", response.data);
-          this.$router.push(`/api/users/${this.user.user_id}`);
+          this.$router.push(`/users/${this.user.id}`);
         })
         .catch(error => {
           console.log(error.response);
