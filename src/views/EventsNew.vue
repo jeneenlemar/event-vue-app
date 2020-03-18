@@ -28,8 +28,20 @@
           <input type="integer" class="form-control" v-model="duration">
         </div>
         <div class="form-group">
-          <label>Category:</label>
-          <input type="integer" class="form-control" v-model="categoryId">
+          <label for="categories">Choose a Category:</label>
+          <select id="categories" type="integer" class="form-control" v-model="categoryId">
+            <option value="1">Sewing</option>
+            <option value="2">General Craft</option>
+            <option value="3">Beading & Jewelry</option>
+            <option value="4">Candlemaking</option>
+            <option value="5">Pottery</option>
+            <option value="6">Painting & Drawing</option>
+            <option value="7">Quilting</option>
+            <option value="8">Scrapbooking</option>
+            <option value="9">Woodworking</option>
+            <option value="10">Knitting & Crochet</option>
+            <option value="11">Stitching</option>
+          </select>
         </div>
         <div class="form-group">
           <label>Kit Price:</label>
@@ -84,6 +96,7 @@ export default {
         title: this.title,
         short_description: this.shortDescription,
         details: this.details,
+        time_start: this.timeStart,
         duration: this.duration,
         category_id: this.categoryId,
         kit_price: this.kitPrice,
@@ -95,7 +108,7 @@ export default {
       axios
         .post("/api/events", params)
         .then(response => {
-          this.$router.push("/user_events");
+          this.$router.push(`/events/${response.data.id}`);
         })
         .catch(error => {
           console.log(error.response);

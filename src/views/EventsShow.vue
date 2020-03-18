@@ -6,6 +6,9 @@
     <div v-if="event">
       {{event}}
       <h2>Title: {{ event.title }}</h2>
+      <div>
+        <button v-if="(event.host.id == $parent.getUserId())" v-on:click="destroyEvent()">Cancel This Event</button>
+      </div>
       <img v-bind:src="event.img_url" height="100" width="100">
       <p>Hosted by: {{ event.host.first_name }}</p>
       
@@ -34,7 +37,7 @@
       
       
       <br>
-      <router-link v-if="event.host.user_id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link>
+      <router-link v-if="event.host.id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link>
     </div>        
   </div>
 </template>
@@ -88,11 +91,15 @@ export default {
           console.log(index);
           this.event.attendees.splice(index, 1);
         });
-
       }
-
+    },
+    destroyEvent: function() {
+      if (confirm("Are you sure you want to cancel this event?")) {
+        axios.delete(`api/events/${this.event.id}`).then(response => {
+          console.log("Cancellation Successful", response.data);
+        });
+      }      
     }
-  }
-    
+  }    
 };
 </script>

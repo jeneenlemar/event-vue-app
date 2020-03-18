@@ -66,8 +66,7 @@ export default {
           var index = this.userEvents.hosting_events.indexOf(hostingEvent);
           this.userEvents.hosting_events.splice(index, 1);
         });
-      }
-      
+      }      
     },
     destroyUserEvent: function(attendingEvent) { 
       if (confirm("Are you sure you want to cancel this reservation?")) {
