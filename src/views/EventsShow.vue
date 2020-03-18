@@ -21,6 +21,8 @@
       <h2>Attendee List</h2>
       <div v-for="attendee in event.attendees">
         {{attendee.first_name}} 
+        {{attendee.last_name}} 
+        <img v-bind:src="attendee.profile_img" height="100" width="100">
       </div>
       
       <p>Slots Remaining: {{ event.slots - event.attendees.length }}</p>

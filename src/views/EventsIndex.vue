@@ -3,7 +3,12 @@
 <template>
   <div class="events-index">
     <h1>{{ message }}</h1>
-    <div v-for="event in events">
+    <div>
+      Search: <input type="text" v-model="keywordFilter">  
+    </div>
+
+    
+    <div v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter)">
       <p> Title: {{ event.title }}</p>
       <p> About: {{ event.short_description }}</p>
       <p> Date/Time: {{ event.time_start }}</p>
@@ -30,12 +35,16 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from 'vue2-filters';
+
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       message: "Upcoming Parties",
       events: [],
-      categories: []
+      categories: [],
+      keywordFilter: ""
       
     };
   },
