@@ -108,7 +108,10 @@ export default {
       formData.append("category_id", this.categoryId);
       formData.append("kit_price", this.kitPrice);
       formData.append("address", this.address);
-      formData.append("image", this.image);
+      if (this.image) {
+        formData.append("image", this.image);
+      }
+      
       formData.append("slots", this.slots);
       
       axios
