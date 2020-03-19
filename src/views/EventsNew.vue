@@ -19,10 +19,16 @@
           <label>Details:</label>
           <input type="text" class="form-control" v-model="details">
         </div>
+
         <div class="form-group">
-          <label>Date and Time:</label>
-          <input type="datetime" class="form-control" v-model="timeStart">
+          <label for="event-time">Date and Time:</label>
+          <input type="datetime-local" id="event-time" 
+          min="2020-01-01T00:00" max="2021-12-31T11:59"
+          class="form-control" v-model="timeStart">
         </div>
+        {{timeStart}}
+
+
         <div class="form-group">
           <label>Duration:</label>
           <input type="integer" class="form-control" v-model="duration">
@@ -103,7 +109,7 @@ export default {
       formData.append("title", this.title);
       formData.append("short_description", this.shortDescription);
       formData.append("details", this.details);
-      formData.append("timeStart", this.timeStart);
+      formData.append("time_start", this.timeStart);
       formData.append("duration", this.duration);
       formData.append("category_id", this.categoryId);
       formData.append("kit_price", this.kitPrice);

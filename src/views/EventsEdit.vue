@@ -20,9 +20,17 @@
           <input type="text" class="form-control" v-model="event.details">
         </div>
         <div class="form-group">
-          <label>Date and Time:</label>
-          <input type="datetime" class="form-control" v-model="event.time_start">
+          <label for="event-time">Date and Time:</label>
+          <input type="datetime-local" id="event-time" 
+          min="2020-01-01T00:00" max="2021-12-31T11:59"
+          class="form-control" v-model="event.time_start">
         </div>
+
+        <div>
+          {{event.time_start}}
+        </div>
+        
+
         <div class="form-group">
           <label>Duration:</label>
           <input type="integer" class="form-control" v-model="event.duration">
@@ -98,6 +106,7 @@ export default {
         title: this.event.title,
         short_description: this.event.short_description,
         details: this.event.details,
+        time_start: this.event.time_start,
         duration: this.event.duration,
         category_id: this.event.category_id,
         kit_price: this.event.kit_price,
