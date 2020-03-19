@@ -56,8 +56,8 @@
           <input type="text" class="form-control" v-model="address">
         </div>
         <div class="form-group">
-          <label>Image URL:</label>
-          <input type="text" class="form-control" v-model="imgUrl">
+          <label>Image:</label>
+          <input type="file" class="form-control" v-on:change="setFile($event)" ref="fileInput">
         </div>
         <div class="form-group">
           <label>Slots:</label>
@@ -84,29 +84,35 @@ export default {
       categoryId: "",
       kitPrice: "",
       locationDescription: "",
-      address: "",
-      imgUrl: "",
+      address: "", 
+      image: "",   
       slots: "",
       errors: [],
     };
   },
   methods: {
+    setFile: function(event) {
+      if (event.target.files.length > 0) {
+        this.image = event.target.files[0];
+      }
+    },
+
     submit: function() {
-      var params = {
-        title: this.title,
-        short_description: this.shortDescription,
-        details: this.details,
-        time_start: this.timeStart,
-        duration: this.duration,
-        category_id: this.categoryId,
-        kit_price: this.kitPrice,
-        location_description: this.locationDescription,
-        address: this.address,
-        img_url: this.imgUrl,
-        slots: this.slots,
-      };
+      var formData = new FormData();
+
+      formData.append("title", this.title);
+      formData.append("short_description", this.shortDescription);
+      formData.append("details", this.details);
+      formData.append("timeStart", this.timeStart);
+      formData.append("duration", this.duration);
+      formData.append("category_id", this.categoryId);
+      formData.append("kit_price", this.kitPrice);
+      formData.append("address", this.address);
+      formData.append("image", this.image);
+      formData.append("slots", this.slots);
+      
       axios
-        .post("/api/events", params)
+        .post("/api/events", formData)
         .then(response => {
           this.$router.push(`/events/${response.data.id}`);
         })

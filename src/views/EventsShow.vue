@@ -13,7 +13,7 @@
       <p>Hosted by: {{ event.host.first_name }}</p>
       
       <p>Short Description: {{ event.short_description }}</p>
-      <p>Date & Time: {{ event.time_start }}</p>
+      <p>Date & Time: {{ relativeDate(event.time_start) }}</p>
       <p>Price: {{ event.kit_price }}</p>
       <p>Details: {{ event.details }}</p>
       <p>Location: {{ event.location_description }}</p>
@@ -51,6 +51,8 @@
 <script>
 
 import axios from 'axios';
+import moment from 'moment';
+
 export default {
   data: function() {
     return {
@@ -99,6 +101,9 @@ export default {
           console.log("Cancellation Successful", response.data);
         });
       }      
+    },
+    relativeDate: function(date) {
+      return moment(date).format('MMMM Do YYYY, h:mm:ss a');
     }
   }    
 };

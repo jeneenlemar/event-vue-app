@@ -7,7 +7,7 @@
         <p><b>{{hostingEvent.title}}</b></p>
         <p>{{hostingEvent.id}}</p> 
         <p>{{hostingEvent.short_description}}</p>    
-        <p>Start: {{hostingEvent.time_start}}</p>
+        <p>Start: {{ relativeDate(hostingEvent.time_start)}}</p>
         <!-- <p>Slots: {{hostingEvent.slots}}</p>
 
         <p> Slots Remaining: </p> -->
@@ -26,7 +26,7 @@
         <p><b>{{attendingEvent.event.title}}</b></p> 
         <p>{{attendingEvent.event.id}}</p> 
         <p>{{attendingEvent.event.short_description}}</p> 
-        <p>{{attendingEvent.event.time_start}}</p> 
+        <p>{{relativeDate(attendingEvent.event.time_start)}}</p> 
         <div>
           <router-link :to="`/events/${attendingEvent.event.id}`">Details</router-link> <br>
           
@@ -43,6 +43,8 @@
 
 <script>
 import axios from "axios";
+import moment from 'moment';
+
 export default {
   data: function() {
     return {
@@ -78,6 +80,9 @@ export default {
       }
       
     },
+    relativeDate: function(date) {
+      return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+    }
   }
 };
 </script>

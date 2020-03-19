@@ -11,7 +11,7 @@
     <div v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter)">
       <p> Title: {{ event.title }}</p>
       <p> About: {{ event.short_description }}</p>
-      <p> Date/Time: {{ event.time_start }}</p>
+      <p> Date & Time: {{ relativeDate(event.time_start) }}</p>
       <img v-bind:src="event.img_url" height="100" width="100"><br>
       <!-- <p> Slots Remaining: {{ event.slots - event.user_events.count }}</p> -->
       <router-link :to="`/events/${event.id}`">Details</router-link> <br>
@@ -36,6 +36,7 @@
 <script>
 import axios from "axios";
 import Vue2Filters from 'vue2-filters';
+import moment from 'moment';
 
 export default {
   mixins: [Vue2Filters.mixin],
@@ -56,8 +57,12 @@ export default {
       console.log(response.data); this.categories = response.data;
     });
   },
-
   
-  methods: {}
+  
+  methods: {
+    relativeDate: function(date) {
+      return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+    },
+  }
 };
 </script>
