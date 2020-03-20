@@ -66,8 +66,8 @@
           <input type="text" class="form-control" v-model="event.address">
         </div>
         <div class="form-group">
-          <label>Image URL:</label>
-          <input type="text" class="form-control" v-model="event.img_url">
+          <label>Image:</label>
+          <input type="file" class="form-control" v-on:change="setFile($event)" ref="fileInput">
         </div>
         <div class="form-group">
           <label>Slots:</label>
@@ -130,7 +130,12 @@ export default {
         console.log(response.data);
         this.$router.push("/user_events");
       });
-    }
+    },
+    setFile: function(event) {
+      if (event.target.files.length > 0) {
+        this.event.img_url = event.target.files[0];
+      }
+    },
   }
 };
 </script>
