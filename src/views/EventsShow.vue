@@ -2,6 +2,7 @@
   <div class="events-show">
 
     <h1>{{ message }}</h1>
+    <div id="map"></div> 
 
     <div v-if="event">
       {{event}}
@@ -33,12 +34,13 @@
       
       <button v-if="!event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Join this Party</button>
       <button v-if="event.attending && (event.host.id != $parent.getUserId())" v-on:click="destroyReservation">Cancel this reservation</button>
-      
-      
+            
       
       <br>
       <router-link v-if="event.host.id == $parent.getUserId()" :to="`/events/${event.id}/edit`">Edit</router-link>
-    </div>        
+    </div>
+
+    
   </div>
 </template>
 
@@ -46,12 +48,15 @@
  img {
   width: 250px;
  }
+ #map { top: 0; bottom: 0; width: 300px; height: 300px; }
 </style>
 
 <script>
 
 import axios from 'axios';
 import moment from 'moment';
+/*global mapboxgl*/
+/*global mapboxSdk*/
 
 export default {
   data: function() {
@@ -65,6 +70,33 @@ export default {
     axios.get(`/api/events/${this.$route.params.id}`).then(response => {
       console.log(response.data);
       this.event = response.data;
+      mapboxgl.accessToken = 'pk.eyJ1IjoiamxlbWFyMjYiLCJhIjoiY2s3YXk2NHMxMDB1cjNqcXZkYjd4b2M0MSJ9.UIUokQ1ceKXEBogxamS2gw';
+      var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+      mapboxClient.geocoding
+        .forwardGeocode({
+          query: this.event.address,
+          autocomplete: false,
+          limit: 1
+        })
+        .send()
+        .then(function(response) {
+          if (
+            response &&
+            response.body &&
+            response.body.features &&
+            response.body.features.length
+          ) {
+            var feature = response.body.features[0];
+           
+            var map = new mapboxgl.Map({
+              container: 'map',
+              style: 'mapbox://styles/mapbox/streets-v11',
+              center: feature.center,
+              zoom: 12
+            });
+            new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+          }
+        });
     });
   },
   methods: {
@@ -105,6 +137,6 @@ export default {
     relativeDate: function(date) {
       return moment(date).format('MMMM Do YYYY, h:mm:ss a');
     }
-  }    
+  },  
 };
 </script>
