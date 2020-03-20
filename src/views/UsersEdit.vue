@@ -26,8 +26,10 @@
           <input type="text" class="form-control" v-model="user.address">
         </div>
         <div class="form-group">
-          <label>Profile Image Url:</label>
-          <input type="text" class="form-control" v-model="user.profile_img">
+          <!-- <label>Profile Image Url:</label>
+          <input type="text" class="form-control" v-model="user.profile_img"> -->
+          <label>Image:</label>
+          <input type="file" class="form-control" v-on:change="setFile($event)" ref="fileInput">
         </div>        
         <input type="submit" class="btn btn-primary" value="Update Profile">
       </form>
@@ -56,15 +58,25 @@ export default {
   },
   methods: {
     submit: function() {
-      var params = {
-        first_name: this.user.first_name,
-        last_name: this.user.last_name,
-        email: this.user.email,
-        address: this.user.address,
-        profile_img: this.user.profile_img
-      };
+      var formData = new FormData();
+
+      formData.append("first_name", this. user.first_name);
+      formData.append("last_name", this.user.last_name);
+      formData.append("email", this.user.email);      
+      formData.append("address", this.user.address);
+      if (this.user.profile_img) {
+        formData.append("profile_img", this.user.profile_img);
+      }
+      
+      // var params = {
+      //   first_name: this.user.first_name,
+      //   last_name: this.user.last_name,
+      //   email: this.user.email,
+      //   address: this.user.address,
+      //   profile_img: this.user.profile_img
+      // };
       axios
-        .patch(`/api/users/${this.user.id}`, params)
+        .patch(`/api/users/${this.user.id}`, formData)
         .then(response => {
           console.log("Successful Update", response.data);
           this.$router.push(`/users/${this.user.id}`);
@@ -80,7 +92,12 @@ export default {
         console.log("User account successfully deleted", response.data);
         this.$router.push("/events");
       });
-    }
+    },
+    setFile: function(event) {
+      if (event.target.files.length > 0) {
+        this.user.profile_img = event.target.files[0];
+      }
+    },
   }
 };
 </script>

@@ -8,6 +8,7 @@
       <p>Email: {{ user.email }}</p>      
       <p>Address: {{ user.address }}</p>
       <p>profile_img: {{ user.profile_img }}</p>
+      <img v-bind:src="user.profile_img" height="100" width="100">
       
       <router-link :to="`/users/${user.id}/edit`">Edit User</router-link>
       
