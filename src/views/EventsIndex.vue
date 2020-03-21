@@ -1,25 +1,49 @@
-
-
 <template>
   <div class="events-index">
-    <h1>{{ message }}</h1>
-    <div>
-      Search: <input type="text" v-model="keywordFilter">  
-    </div>
+
+
+    <section id="portfolio" class="p-0 info-effect">
+
+      <div class="form-group">
+        <input class="form-control" placeholder="search" type="text" v-model="keywordFilter">  
+      </div>
+      
+      <div class="container">
+
+        <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
+          <!-- project -->
+          <li v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter)" class="col-md-6 col-lg-4 project project-box">
+            <figure class="portfolio-item effect-info">
+              <img :src="event.img_url" alt="">
+              <div class="project-info text-center inner-space-2x bg-white rectangle no-border">
+                <h4 class="project-title mt-0 mb-3">{{ event.title }}</h4>
+                <p class="project-info-text mb-1">{{ event.short_description }}</p>
+                <p class="project-info-skill bg-transparent text-grey mb-2">{{ relativeDate(event.time_start) }}</p>
+                <router-link :to="`/events/${event.id}`" class="btn btn-primary pill">Details</router-link>
+              </div><!-- / project-info -->
+              <figcaption>
+                <div class="hover-content">
+                  <div class="project-icons">
+                    <a href="images/project1.jpg" class="image-lightbox"><i class="fas fa-search"></i></a>
+                  </div><!-- / project-icons -->
+                </div><!-- / hover-content -->
+                <a class="project-link" href="single-project.html"></a><!-- / project-link -->
+              </figcaption>
+            </figure><!-- / portfolio-item -->
+          </li><!-- / project -->
+
+        </ul> <!-- / portfolio -->
+      </div><!-- / container -->
+    </section>
+    <!-- / portfolio -->
+
+
+   
 
     
-    <div v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter)">
-      <p> Title: {{ event.title }}</p>
-      <p> About: {{ event.short_description }}</p>
-      <p> Date & Time: {{ relativeDate(event.time_start) }}</p>
-      <img v-bind:src="event.img_url" height="100" width="100"><br>
-      <!-- <p> Slots Remaining: {{ event.slots - event.user_events.count }}</p> -->
-      <router-link :to="`/events/${event.id}`">Details</router-link> <br>
-      <!-- ACTIVATE line 11 when edit is created!!!!! -->
-      
-    </div>
 
-<h1>Categories</h1>
+
+    <h1>Categories</h1>
     <div v-for="category in categories">
       <p>{{category.name}}</p>
       <img v-bind:src="category.img_url" height="100" width="100">
