@@ -1,6 +1,202 @@
 <template>
   <div class="events-show">
 
+    <!-- start pasted code -->
+    <section id="posts">
+      <div class="spacer">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 blog-content">
+            <div class="blog block">
+              <img v-bind:src="event.img_url" alt="">
+              <div class="post-content">
+                <div class="post-meta">
+                  <p class="text-sm"><i class="far fa-user text-primary mr-1"></i>{{event.host.first_name}} {{event.host.last_name}}<i class="far fa-bookmark text-primary ml-3 mr-1"></i> CREATIVE <i class="far fa-clock text-primary ml-3 mr-1"></i> 18 AUG 2018</p>
+                </div><!-- / post-meta -->
+                <h4 class="post-title text-bold">{{ event.title }}</h4>
+                <p class="mb-3">Donec rhoncus sodales lacus maet pellentesque molestie. Maecenas sodales molestie ipsum. uspendisse porttitor lacus sapien, quis pellentesque ligula volutpat et. Phasellus aliquam nibh at varius vestibulum. Curabitur convallis dolor mauris, eget ultrices.</p>
+                <p class="mb-3">Quisque molestie nisl vitae justo semper, non luctus purus pharetra. Nulla scelerisque nunc est, sed molestie velit lobortis vitae.</p>
+                <blockquote class="blockquote">
+                  <p class="mb-0">Suspendisse elit nunc, ornare eu dictum ut, consectetur eget turpis. Nam nec ex ac nunc mollis tincidunt. Sed ut luctus ante, vitae tempor velit. Maecenas eget dictum nisl. Proin imperdiet libero sem, ut consectetur felis aliquam sit amet.</p>
+                  <footer class="blockquote-footer">Someone Famous</footer>
+                </blockquote>
+                <h4 class="mb-3">Quisque consequat</h4>
+                <p>In lobortis massa tristique metus dictum hendrerit. Integer faucibus augue vitae arcu placerat, id eleifend odio semper. Etiam congue sed ex in cursus. Praesent at tempor turpis. In rhoncus congue euismod. Ut euismod ex eget bibendum porta.</p>
+              </div><!-- / post-content -->
+            </div><!-- / blog-block -->
+
+            <div class="spacer">&nbsp;</div>
+
+            <div id="comments" class="comments">
+              <div class="container">
+                <h4 class="mb-3">COMMENTS (3)</h4>
+
+                <div class="spacer">&nbsp;</div>
+
+                <ul class="media-list">
+                  <li class="media">
+                    <div class="media-left">
+                      <a href="#x">
+                        <img class="media-object" alt="" src="images/user-img1.jpg">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <div class="comment-info">
+                        <div class="comment-date text-sm"><i class="far fa-clock mr-1"></i> 20 AUG 2018</div>
+                        <div class="comment-author"><a href="#x"><b>John Doe</b></a></div>
+                      </div><!-- / comment-info -->
+                      <div class="comment">
+                        <p class="mb-0">Quisque molestie nisl vitae justo semper, non luctus purus pharetra. Nulla scelerisque nunc est, sed molestie velit lobortis vitae. In hac habitasse platea dictumst. Nullam faucibus tempor nisl, nec ultrices justo.</p>
+                        <a href="#x" class="comment-reply"><i class="fas fa-reply"></i> <b>Reply</b></a>
+                      </div><!-- / comment -->
+
+                      <!-- nested media objects -->
+                      <div class="media">
+                        <div class="media-left">
+                          <a href="#x">
+                            <img class="media-object" alt="" src="images/user-img2.jpg">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <div class="comment-info">
+                            <div class="comment-date text-sm"><i class="far fa-clock mr-1"></i> 21 AUG 2018</div>
+                            <div class="comment-author"><a href="#x"><b>Natalie Doe</b></a></div>
+                          </div><!-- / comment-info -->
+                          <div class="comment">
+                            <p class="mb-0">Sed dignissim venenatis risus, sit amet sollicitudin odio faucibus eu. Cras facilisis consectetur diam vel mattis. Fusce diam ipsum.</p>
+                            <a href="#x" class="comment-reply"><i class="fas fa-reply"></i> <b>Reply</b></a>
+                          </div><!-- / comment -->
+                        </div><!-- / nested media objects media-body -->
+                      </div><!-- / nested media objects media -->
+                    </div><!-- / parent media-body -->
+                  </li><!-- / media -->
+
+                  <li class="media">
+                    <div class="media-left">
+                      <a href="#x">
+                        <img class="media-object" alt="" src="images/user-img3.jpg">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <div class="comment-info">
+                        <div class="comment-date text-sm"><i class="far fa-clock mr-1"></i> 19 AUG 2018</div>
+                        <div class="comment-author"><a href="#x"><b>Lucy Doe</b></a></div>
+                      </div><!-- / comment-info -->
+                      <div class="comment">
+                        <p class="mb-0">Suspendisse elit nunc, ornare eu dictum ut, consectetur eget turpis. Nam nec ex ac nunc mollis tincidunt. Sed ut luctus ante, vitae tempor velit. Maecenas eget dictum nisl. Proin imperdiet libero sem.</p>
+                        <a href="#x" class="comment-reply"><i class="fas fa-reply"></i> <b>Reply</b></a>
+                      </div><!-- / comment -->
+                    </div><!-- / parent media-body -->
+                  </li><!-- / media -->
+                </ul><!-- / media-list -->
+
+                <div class="spacer-2x">&nbsp;</div>
+
+                <!-- comment form -->
+                <div id="comment-form">
+                  <h4 class="mb-3">LEAVE A COMMENT</h4>
+                  <form id="commentForm">
+                    <div class="row">
+                      <div class="col-md-6 sub-col-left">
+                        <div class="form-group">
+                          <input type="text" class="form-control border-faded" id="subject" placeholder="*Name">
+                        </div>
+                      </div><!-- / sub-column -->
+                      <div class="col-md-6 sub-col-right">
+                        <div class="form-group">
+                          <input type="email" class="form-control border-faded" id="email" placeholder="*Email">
+                        </div>
+                      </div><!-- / sub-column -->
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <textarea id="message" class="form-control border-faded" rows="5" placeholder="*Comment"></textarea>
+                        </div>
+                      </div><!-- / sub-column -->
+                    </div><!-- / row -->
+
+                    <div class="text-center">
+                      <button type="submit" id="form-submit" class="btn btn-primary"><i class="fas fa-comments mr-1"></i> <span>Post Comment</span></button>
+                      <div id="msgSubmit" class="h3 text-center hidden"></div>
+                      <div class="clearfix"></div> 
+                    </div><!-- / text-center -->
+                  </form><!-- / commentForm -->
+                </div>
+                <!-- / comment form -->
+              </div><!-- / container -->
+            </div><!-- / comments -->
+          </div><!-- / blog-content -->
+
+          <div class="col-md-4 blog-sidebar mt-3">
+            <div class="sidebar-widget">
+              <div class="about-widget">
+                <h4 class="widget-title text-center">YOUR HOST</h4>
+                <div class="about-image text-center">
+                  <img :src="event.host.profile_img" alt="">
+                </div><!-- / about-image -->
+                <p class="text-center">{{event.host.first_name}} {{event.host.last_name}}</p>
+              </div><!-- / about-widget -->
+            </div><!-- / sidebar-widget -->
+
+            <div class="sidebar-widget">
+              <h4 class="widget-title text-center">LOCATION</h4>
+              <div class="spacer">&nbsp;</div>
+              <div class="post-widget">
+                <ul class="list-unstyled">
+                  <li>
+                    <div class="recent-posts first">
+                      <div class="recent-post-image">
+
+                        <img src="images/blog-post.jpg" alt="">
+                      </div><!-- / recent-post-image -->
+                      <div class="recent-post-content">
+                        <a href="single-post.html" class="recent-post-title">{{ event.location_description }}</a>
+                        <div id="map"></div> 
+                        <p class="text-sm mb-2">*</p>
+                        <p class="text-sm opc-75"><i class="fa fa-location-arrow"></i> {{ event.address }}</p>
+                      </div><!-- / recent-post-content -->
+                    </div><!-- / recent-posts -->
+                  </li>
+                  <li>
+                    <div class="recent-posts pt-2">
+                      <div class="recent-post-image">
+                        <img src="images/blog-post2.jpg" alt="">
+                      </div>
+                    </div><!-- / recent-posts -->
+                  </li>
+                </ul>
+              </div><!-- / post-widget -->
+            </div><!-- / sidebar-widget -->
+
+            <div class="sidebar-widget">
+              <h4 class="widget-title text-center pb-3">NEWSLETTER</h4>
+              <p class="text-center">Subscribe to our newsletter to get notified about new posts, informations and updates.</p>
+              <div class="input-group mt-3">
+                <input type="text" class="form-control border-faded" placeholder="Email Address">
+                <span class="input-group-btn">
+                  <a href="#x" class="btn btn-w-icon btn-primary ml-2"><span><i class="fas fa-paper-plane"></i></span></a>
+                </span>
+              </div><!-- / input-group -->
+            </div><!-- / sidebar-widget -->
+
+            <div class="sidebar-widget">
+              <h4 class="widget-title text-center pb-2">TAGS</h4>
+              <div class="tag-cloud">
+                <a href="#x" class="btn btn-sm btn-black rectangle mt-1">#design</a>
+                <a href="#x" class="btn btn-sm btn-black rectangle mt-1">#illustrations</a>
+                <a href="#x" class="btn btn-sm btn-black rectangle mt-1">#branding</a>
+                <a href="#x" class="btn btn-sm btn-black rectangle mt-1">#webdesign</a>
+                <a href="#x" class="btn btn-sm btn-black rectangle mt-1">#photography</a>
+                <a href="#x" class="btn btn-sm btn-black rectangle mt-1">#travel</a>
+              </div><!-- / tag-cloud -->
+              <!-- / tags-widget -->
+            </div><!-- / sidebar-widget -->
+          </div><!-- / blog-sidebar -->
+        </div><!-- / row -->
+      </div><!-- / container -->
+    </section><!-- / posts -->
+
+    <!-- end pasted code -->
+
     <h1>{{ message }}</h1>
     <div id="map"></div> 
 

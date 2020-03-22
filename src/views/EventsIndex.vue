@@ -79,12 +79,12 @@
 
 
    
-    <div v-for="category in categories">
+   <!--  <div v-for="category in categories">
       <p>{{category.name}}</p>
       <img v-bind:src="category.img_url" height="100" width="100">
       <router-link :to="`/categories/${category.id}`">Go To Events For This Category</router-link> 
       
-    </div>
+    </div> -->
   </div>
 </template>
 
