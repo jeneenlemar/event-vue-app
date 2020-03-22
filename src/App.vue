@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-inverse bg-primary fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="images/logo-white.png" alt=""></a>
+        <a class="navbar-brand" href="index.html"><img src="images/craft_sml_logo.png" alt=""></a>
 
         <button class="navbar-toggler collapsed menu-text" type="button" data-toggle="collapse" data-target="#navbar-toggle" aria-controls="navbar-toggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon-bar top-bar"></span>
@@ -18,23 +18,23 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/events">EVENTS</router-link>
             </li>
-            <li class="nav-item">
+            <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" to="/events/new">NEW EVENT</router-link>
             </li>
-            <li class="nav-item">
+            <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" to="/user_events">MY EVENTS</router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link" :to="`/users/${getUserId()}`">Profile</router-link>
+            <li v-if="isLoggedIn()" class="nav-item">
+              <router-link class="nav-link" :to="`/users/${getUserId()}`">PROFILE</router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/events">EVENTS</router-link>
+            <li v-if="isLoggedIn()" class="nav-item">
+              <router-link class="nav-link" :to="`/users/${getUserId()}/edit`">EDIT PROFILE</router-link>
             </li>
             <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" to="/logout">LOGOUT</router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/events">EVENTS</router-link>
+            <li v-if="!isLoggedIn()" class="nav-item">
+              <router-link class="nav-link" to="/login">LOGIN</router-link>
             </li>
             <li v-if="!isLoggedIn()" class="nav-item">
               <router-link class="nav-link" to="/signup">SIGNUP</router-link>
@@ -51,15 +51,15 @@
      <!--  <router-link to="/events">All Parties List</router-link> |
       <router-link to="/events/new">Host a Party</router-link> |
       <router-link to="/user_events">My Parties</router-link> | -->
-      <router-link :to="`/users/${getUserId()}`">Profile</router-link> |
-      <router-link :to="`/users/${getUserId()}/edit`">Update Profile</router-link> |
-      <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link> |
-      <router-link v-if="!isLoggedIn()" to="/login">Login</router-link> 
-      <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link> 
+      <!-- <router-link :to="`/users/${getUserId()}`">Profile</router-link> | -->
+      <!-- <router-link :to="`/users/${getUserId()}/edit`">Update Profile</router-link> | -->
+      <!-- <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link> | -->
+      <!-- <router-link v-if="!isLoggedIn()" to="/login">Login</router-link> --> 
+      <!-- <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>  -->
 
     </div>
 
-    <div class="container" style="padding-top: 90px">
+    <div class="container" style="padding-top: 120px">
       <router-view/>
     </div>
       

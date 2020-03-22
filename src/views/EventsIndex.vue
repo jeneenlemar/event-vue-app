@@ -11,7 +11,12 @@
       <div class="container">
 
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
+          <h3 class="section-title hidden">WORK</h3>
           <!-- project -->
+          <div>
+               <h1>Upcoming Events</h1>
+          </div>
+       
           <li v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter)" class="col-md-6 col-lg-4 project project-box">
             <figure class="portfolio-item effect-info">
               <img :src="event.img_url" alt="">
@@ -36,14 +41,44 @@
       </div><!-- / container -->
     </section>
     <!-- / portfolio -->
+  <!-- end of top section -->
+  <!-- begin categories section -->
+  <!-- / container -->
+            <div class="container">
+               <h1>Categories</h1>
+                <h3 class="section-title hidden">WORK</h3>
+                <ul class="row portfolio line-effect lightbox list-unstyled mb-0" id="grid">
+                    <!-- project -->
+                   <!-- / project -->
 
+                    <!-- project -->
+                    <li v-for="category in categories" class="col-md-6 col-lg-4 project" data-groups='["design", "branding"]'>
+                        <figure class="portfolio-item effect-bubba">
+                            <img v-bind:src="category.img_url" alt="">
+                            <figcaption>
+                              <router-link :to="`/categories/${category.id}`">
+                                <div class="hover-content">
+                                    <h2 class="hover-title text-center text-white">{{category.name}}</h2><!-- / hover-title -->
+                                    <!-- / project-skills -->
+                                </div>
+                              </router-link>
+                                <!-- / hover-content -->
+                                <!-- / project-link -->
+                                <a href="images/project2.jpg" class="image-lightbox"><i class="fas fa-search"></i></a>
+                            </figcaption>
+                        </figure><!-- / portfolio-item -->
+                    </li><!-- / project -->
+                </ul> <!-- / portfolio -->
+            </div><!-- / container -->
+
+  <!-- end pasted elements for categories section -->
 
    
 
     
 
 
-    <h1>Categories</h1>
+   
     <div v-for="category in categories">
       <p>{{category.name}}</p>
       <img v-bind:src="category.img_url" height="100" width="100">
