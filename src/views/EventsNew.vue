@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
           <label for="categories">Choose a Category:</label>
-          <select id="categories" type="integer" class="form-control" v-model="categoryId">
+          <select id="categories" type="integer" class="form-control multiple-selector" v-model="categoryId">
             <option value="1">Sewing</option>
             <option value="2">General Craft</option>
             <option value="3">Beading & Jewelry</option>
@@ -75,6 +75,12 @@
     </div>
   </div>
 </template>
+
+<style>
+  input.form-control {
+    color: #495057 !important;
+  }
+</style>
 
 <script>
 import axios from "axios";

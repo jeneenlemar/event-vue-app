@@ -24,7 +24,7 @@
                 </blockquote>
                 <h4 class="mb-3">Quisque consequat</h4>
                 <p>In lobortis massa tristique metus dictum hendrerit. Integer faucibus augue vitae arcu placerat, id eleifend odio semper. Etiam congue sed ex in cursus. Praesent at tempor turpis. In rhoncus congue euismod. Ut euismod ex eget bibendum porta.</p> -->
-                <button v-if="!event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Join this Party</button>
+                <button v-if="$parent.isLoggedIn() && !event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Join this Party</button>
                 <button v-if="event.attending && (event.host.id != $parent.getUserId())" v-on:click="destroyReservation">Cancel My Reservation To This Event</button>
                 <router-link v-if="event.host.id == $parent.getUserId()" :to="`/events/${event.id}/edit`" tag="button">Edit</router-link>
                 <!-- <button v-if="event.host.id == $parent.getUserId()" v-on:click="editEvent">Edit</button> -->
@@ -34,48 +34,7 @@
             <div class="spacer">&nbsp;</div>
             <!-- leave this section in case implement later for wanting comments and feedback -->
 
-            <div id="comments" class="comments">
-              <div class="container">
-                <h4 class="mb-3">Want more info?</h4>
-
-                <div class="spacer">&nbsp;</div>
-
-                
-
-                <div class="spacer-2x">&nbsp;</div>
-
-                <!-- comment form -->
-                <div id="comment-form">
-                  <h4 class="mb-3">Send us your questions and concerns:</h4>
-                  <form id="commentForm">
-                    <div class="row">
-                      <div class="col-md-6 sub-col-left">
-                        <div class="form-group">
-                          <input type="text" class="form-control border-faded" id="subject" placeholder="*Name">
-                        </div>
-                      </div><!-- / sub-column -->
-                      <div class="col-md-6 sub-col-right">
-                        <div class="form-group">
-                          <input type="email" class="form-control border-faded" id="email" placeholder="*Email">
-                        </div>
-                      </div><!-- / sub-column -->
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <textarea id="message" class="form-control border-faded" rows="5" placeholder="*Your Inquiry"></textarea>
-                        </div>
-                      </div><!-- / sub-column -->
-                    </div><!-- / row -->
-
-                    <div class="text-center">
-                      <button type="submit" id="form-submit" class="btn btn-primary"><i class="fas fa-comments mr-1"></i> <span>Send Inquiry</span></button>
-                      <div id="msgSubmit" class="h3 text-center hidden"></div>
-                      <div class="clearfix"></div> 
-                    </div><!-- / text-center -->
-                  </form><!-- / commentForm -->
-                </div>
-                <!-- / comment form -->
-              </div><!-- / container -->
-            </div><!-- / comments -->
+            
           </div><!-- / blog-content -->
 
           <div class="col-md-4 blog-sidebar mt-3">

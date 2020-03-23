@@ -4,6 +4,7 @@
     <!-- pasted content -->
     <section id="portfolio" class="p-0 info-effect">
       <div class="container">
+           <h1>{{ message }}</h1>
         <!-- portfolio filter -->
         
         <!-- / portfolio filter -->
@@ -12,7 +13,7 @@
         <h3 class="section-title hidden">WORK</h3>
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <!-- project -->
-          <h1>{{ message }}</h1>
+       
           <li v-for="hostingEvent in userEvents.hosting_events" class="col-md-6 col-lg-4 project project-box" data-groups='["illustrations"]'>
             <figure class="portfolio-item effect-info">
               <img :src="hostingEvent.img_url" alt="">
@@ -41,10 +42,11 @@
 
       <!-- SECOND section for parties attending -->
       <div class="container">
+        <h1>{{message2}}</h1>
         <h3 class="section-title hidden">WORK</h3>
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <!-- project -->
-          <h1>{{message2}}</h1>
+          
           <li v-for="attendingEvent in userEvents.attending_events" class="col-md-6 col-lg-4 project project-box" data-groups='["illustrations"]'>
             <figure class="portfolio-item effect-info">
               <img :src="attendingEvent.event.img_url" alt="">

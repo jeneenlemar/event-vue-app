@@ -7,16 +7,14 @@
       <div class="form-group">
         <input class="form-control" placeholder="search" type="text" v-model="keywordFilter">  
       </div>
-      
+      <div>
+           <h1>Upcoming Events</h1>
+      </div>
       <div class="container">
 
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <h3 class="section-title hidden">WORK</h3>
           <!-- project -->
-          <div>
-               <h1>Upcoming Events</h1>
-          </div>
-       
           <li v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter)" class="col-md-6 col-lg-4 project project-box">
             <figure class="portfolio-item effect-info">
               <img :src="event.img_url" alt="">
