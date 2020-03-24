@@ -34,7 +34,7 @@
         <input type="submit" class="btn btn-primary" value="Update Profile">
       </form>
       <div>
-         <button v-on:click="destroyUser()">Delete My Account</button>
+         <button class="btn btn-primary" v-on:click="destroyUser()">Delete My Account</button>
       </div>
     </div>
   </div>
@@ -87,10 +87,10 @@ export default {
         });
     },
     destroyUser: function() {
-      confirm("Are you sure you want to cancel this event?");
+      confirm("Are you sure you want to delete this account?");
       axios.delete(`/api/users/${this.user.id}`).then(response => {
         console.log("User account successfully deleted", response.data);
-        this.$router.push("/events");
+        this.$router.push("/logout");
       });
     },
     setFile: function(event) {
