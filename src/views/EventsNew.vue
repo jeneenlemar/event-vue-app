@@ -19,7 +19,7 @@
           <label>Details:</label>
           <input type="text" class="form-control" v-model="details">
         </div>
-
+        <input type="hidden" id="timezone" name="timezone" value="-06:00">
         <div class="form-group">
           <label for="event-time">Date and Time:</label>
           <input type="datetime-local" id="event-time" 
@@ -27,6 +27,8 @@
           class="form-control" v-model="timeStart">
         </div>
         {{timeStart}}
+        
+
 
 
         <div class="form-group">
@@ -84,6 +86,7 @@
 
 <script>
 import axios from "axios";
+import moment from 'moment';
 
 export default {
   data: function() {
@@ -115,7 +118,7 @@ export default {
       formData.append("title", this.title);
       formData.append("short_description", this.shortDescription);
       formData.append("details", this.details);
-      formData.append("time_start", this.timeStart);
+      formData.append("time_start", moment(this.timeStart).format());
       formData.append("duration", this.duration);
       formData.append("category_id", this.categoryId);
       formData.append("kit_price", this.kitPrice);

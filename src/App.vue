@@ -59,12 +59,23 @@
 
     </div>
 
-    <div class="container" style="padding-top: 120px">
+    <div class="pt-div">
       <router-view/>
     </div>
       
   </div>
 </template>
+
+<style>
+  .pt-div {
+    padding-top: 100px;
+  }
+  @media only screen and (max-width: 892px) {
+    .pt-div {
+      padding-top: 82px;
+    }
+  }
+</style>
 
 <script>
 export default {

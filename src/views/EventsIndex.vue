@@ -1,18 +1,16 @@
 <template>
   <div class="events-index">
 
-<header class="bg-primary has-sticky-menu">
+
+
+    <header class="main-header parallax">
       <div class="container">
-        <div class="header-content text-center">
-          <!-- <h2 class="text-white">PORTFOLIO</h2>
-          <p class="text-white mb-0">Project Info Box</p> -->
-          <img src="images/large_landing.png" height="500" width ="500">
-        </div><!-- / header-content -->
+        
       </div><!-- / container -->
     </header>
 
     <section id="portfolio" class="p-0 info-effect">
-      
+
 
       <div class="form-group">
         <input class="form-control" placeholder="search" type="text" v-model="keywordFilter">  
@@ -22,9 +20,36 @@
       </div>
       <div class="container">
 
-        <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
+        <ul v-if="showLess" class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <h3 class="section-title hidden">WORK</h3>
           <!-- project -->
+          <!-- filterBy(orderBy(events, 'time_start', 1), keywordFilter) -->
+          <li v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter).slice(0,9)" class="col-md-6 col-lg-4 project project-box">
+            <figure class="portfolio-item effect-info">
+              <img :src="event.img_url" alt="">
+              <div class="project-info text-center inner-space-2x bg-white rectangle no-border">
+                <h4 class="project-title mt-0 mb-3">{{ event.title }}</h4>
+                <p class="project-info-text mb-1">{{ event.short_description }}</p>
+                <p class="project-info-skill bg-transparent text-grey mb-2">{{ relativeDate(event.time_start) }}</p>
+                <router-link :to="`/events/${event.id}`" class="btn btn-primary pill">Details</router-link>
+              </div><!-- / project-info -->
+              <figcaption>
+                <div class="hover-content">
+                  <div class="project-icons">
+                    <a href="images/project1.jpg" class="image-lightbox"><i class="fas fa-search"></i></a>
+                  </div><!-- / project-icons -->
+                </div><!-- / hover-content -->
+                <a class="project-link" href="single-project.html"></a><!-- / project-link -->
+              </figcaption>
+            </figure><!-- / portfolio-item -->
+          </li><!-- / project -->
+
+        </ul> <!-- / portfolio -->
+
+        <ul v-else class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
+          <h3 class="section-title hidden">WORK</h3>
+          <!-- project -->
+          <!-- filterBy(orderBy(events, 'time_start', 1), keywordFilter) -->
           <li v-for="event in filterBy(orderBy(events, 'time_start', 1), keywordFilter)" class="col-md-6 col-lg-4 project project-box">
             <figure class="portfolio-item effect-info">
               <img :src="event.img_url" alt="">
@@ -46,6 +71,7 @@
           </li><!-- / project -->
 
         </ul> <!-- / portfolio -->
+        <button v-on:click="showLess = false" class="btn btn-primary pill">Show More</button>
       </div><!-- / container -->
     </section>
     <!-- / portfolio -->
@@ -112,7 +138,8 @@ export default {
       message: "Upcoming Parties",
       events: [],
       categories: [],
-      keywordFilter: ""
+      keywordFilter: "",
+      showLess: true
       
     };
   },

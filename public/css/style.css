@@ -4313,6 +4313,12 @@ header.main-demo {
   background-image: url("../images/main-header.jpg");
 }
 
+header.main-header {
+  background-image: url("../images/main-header.png");
+  padding: 450px;
+}
+
+
 header.portfolio-demo {
   background-image: url("../images/portfolio-header.jpg");
 }
