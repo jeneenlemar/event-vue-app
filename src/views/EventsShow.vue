@@ -12,7 +12,7 @@
               <div class="post-content">
                 <div class="post-meta">
                   <p class="text-sm"><i class="far fa-user text-primary mr-1"></i>{{event.host.first_name}} {{event.host.last_name}}<i class="far fa-clock text-primary ml-3 mr-1"></i> {{ relativeDate(event.time_start) }}
-                  {{event.time_start}}</p>
+                  </p>
                   <p class="text-sm"><i class="far fa text-primary fa-asterisk"></i>
                   Slots Remaining: {{ event.slots - event.attendees.length }}</p>
                 </div><!-- / post-meta -->
@@ -25,9 +25,9 @@
                 </blockquote>
                 <h4 class="mb-3">Quisque consequat</h4>
                 <p>In lobortis massa tristique metus dictum hendrerit. Integer faucibus augue vitae arcu placerat, id eleifend odio semper. Etiam congue sed ex in cursus. Praesent at tempor turpis. In rhoncus congue euismod. Ut euismod ex eget bibendum porta.</p> -->
-                <button v-if="$parent.isLoggedIn() && !event.attending && (event.host.id != $parent.getUserId())" v-on:click="createUserEvent()">Join this Party</button>
-                <button v-if="event.attending && (event.host.id != $parent.getUserId())" v-on:click="destroyReservation">Cancel My Reservation To This Event</button>
-                <router-link v-if="event.host.id == $parent.getUserId()" :to="`/events/${event.id}/edit`" tag="button">Edit</router-link>
+                <button v-if="$parent.isLoggedIn() && !event.attending && (event.host.id != $parent.getUserId())" class="btn btn-primary pill" v-on:click="createUserEvent()">Join this Party</button>
+                <button v-if="event.attending && (event.host.id != $parent.getUserId())" class="btn btn-danger pill" v-on:click="destroyReservation">Cancel My Reservation To This Event</button>
+                <router-link v-if="event.host.id == $parent.getUserId()" :to="`/events/${event.id}/edit`" class="btn btn-primary pill" tag="button">Edit</router-link>
                 <!-- <button v-if="event.host.id == $parent.getUserId()" v-on:click="editEvent">Edit</button> -->
               </div><!-- / post-content -->
             </div><!-- / blog-block -->
