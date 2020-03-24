@@ -4,7 +4,7 @@
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <h1>Update Profile</h1>
-        {{user}}
+      
         <img v-if="errors.length" src="https://http.cat/100">
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -31,14 +31,17 @@
           <label>Image:</label>
           <input type="file" class="form-control" v-on:change="setFile($event)" ref="fileInput">
         </div>        
-        <input type="submit" class="btn btn-primary" value="Update Profile">
+        <input type="submit" class="btn btn-primary pill" value="Update Profile">
       </form>
       <div>
-         <button class="btn btn-primary" v-on:click="destroyUser()">Delete My Account</button>
+         <button id="moveDown" class="btn btn-danger pill" v-on:click="destroyUser()">Delete Account</button>
       </div>
     </div>
   </div>
 </template>
+<style>
+  
+</style>
 
 <script>
 import axios from "axios";
