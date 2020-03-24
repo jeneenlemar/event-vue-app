@@ -144,9 +144,6 @@
       
       
     </div>
-
-    
-  </div>
 </template>
 
 <style>
