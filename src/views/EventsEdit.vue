@@ -39,7 +39,7 @@
           <label>Category:</label>
           <!-- <input type="integer" class="form-control" v-model="event.category_id"> -->
           <label for="categories">Choose a Category:</label>
-          <select id="categories" type="integer" class="form-control" v-model="event.category_id">
+          <select id="categories" type="integer" class="form-control multiple-selector" v-model="event.category_id">
             <option value="1">Sewing</option>
             <option value="2">General Craft</option>
             <option value="3">Beading & Jewelry</option>
