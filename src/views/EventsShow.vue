@@ -11,7 +11,8 @@
               <img v-bind:src="event.img_url" alt="">
               <div class="post-content">
                 <div class="post-meta">
-                  <p class="text-sm"><i class="far fa-user text-primary mr-1"></i>{{event.host.first_name}} {{event.host.last_name}}<i class="far fa-clock text-primary ml-3 mr-1"></i> {{ relativeDate(event.time_start) }}</p>
+                  <p class="text-sm"><i class="far fa-user text-primary mr-1"></i>{{event.host.first_name}} {{event.host.last_name}}<i class="far fa-clock text-primary ml-3 mr-1"></i> {{ relativeDate(event.time_start) }}
+                  {{event.time_start}}</p>
                   <p class="text-sm"><i class="far fa text-primary fa-asterisk"></i>
                   Slots Remaining: {{ event.slots - event.attendees.length }}</p>
                 </div><!-- / post-meta -->

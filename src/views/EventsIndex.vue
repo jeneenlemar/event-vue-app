@@ -1,8 +1,18 @@
 <template>
   <div class="events-index">
 
+<header class="bg-primary has-sticky-menu">
+      <div class="container">
+        <div class="header-content text-center">
+          <!-- <h2 class="text-white">PORTFOLIO</h2>
+          <p class="text-white mb-0">Project Info Box</p> -->
+          <img src="images/large_landing.png" height="500" width ="500">
+        </div><!-- / header-content -->
+      </div><!-- / container -->
+    </header>
 
     <section id="portfolio" class="p-0 info-effect">
+      
 
       <div class="form-group">
         <input class="form-control" placeholder="search" type="text" v-model="keywordFilter">  
