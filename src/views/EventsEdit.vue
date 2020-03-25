@@ -103,21 +103,36 @@ export default {
   },
   methods: {
     submit: function() {
-      var params = {
-        title: this.event.title,
-        short_description: this.event.short_description,
-        details: this.event.details,
-        time_start: this.event.time_start,
-        duration: this.event.duration,
-        category_id: this.event.category_id,
-        kit_price: this.event.kit_price,
-        location_description: this.event.location_description,
-        address: this.event.address,
-        img_url: this.event.img_url,
-        slots: this.event.slots,
-      };
+      var formData = new FormData();
+
+      formData.append("title", this.event.title);
+      formData.append("short_description", this.event.short_description);
+      formData.append("details", this.event.details);      
+      formData.append("time_start", this.event.time_start);
+      formData.append("duration", this.event.duration);
+      formData.append("category_id", this.event.category_id);
+      formData.append("kit_price", this.event.kit_price);
+      formData.append("location_description", this.event.location_description);
+      formData.append("address", this.event.address);
+      if (this.event.img_url) {
+        formData.append("img_url", this.event.img_url);
+      }
+    // submit: function() {
+    //   var params = {
+    //     title: this.event.title,
+    //     short_description: this.event.short_description,
+    //     details: this.event.details,
+    //     time_start: this.event.time_start,
+    //     duration: this.event.duration,
+    //     category_id: this.event.category_id,
+    //     kit_price: this.event.kit_price,
+    //     location_description: this.event.location_description,
+    //     address: this.event.address,
+    //     img_url: this.event.img_url,
+    //     slots: this.event.slots,
+    //   };
       axios
-        .patch(`/api/events/${this.event.id}`, params)
+        .patch(`/api/events/${this.event.id}`, formData)
         .then(response => {
           this.$router.push(`/events/${this.event.id}`);
         })
