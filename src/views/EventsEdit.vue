@@ -30,7 +30,7 @@
         </div>
 
         <div>
-          {{event.time_start}}
+         <!--  {{event.time_start}} -->
         </div>
         
 
