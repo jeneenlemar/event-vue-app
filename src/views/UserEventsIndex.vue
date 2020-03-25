@@ -21,7 +21,7 @@
           <!-- project -->
         
           <li v-for="hostingEvent in userEvents.hosting_events" class="col-md-6 col-lg-4 project project-box" data-groups='["illustrations"]'>
-            <figure class="portfolio-item effect-info">
+            <figure class="portfolio-item">
               <img :src="hostingEvent.img_url" alt="">
               <div class="project-info text-center inner-space-2x bg-white rectangle no-border">
                 <h4 class="project-title mt-0 mb-3">{{hostingEvent.title}}</h4>
@@ -33,14 +33,7 @@
 
 
               </div><!-- / project-info -->
-              <figcaption>
-                <div class="hover-content">
-                  <div class="project-icons">
-                    <a href="images/project1.jpg" class="image-lightbox"><i class="fas fa-search"></i></a>
-                  </div><!-- / project-icons -->
-                </div><!-- / hover-content -->
-                <a class="project-link" href="single-project.html"></a><!-- / project-link -->
-              </figcaption>
+              
             </figure><!-- / portfolio-item -->
           </li><!-- / project -->
         </ul> <!-- / portfolio -->
