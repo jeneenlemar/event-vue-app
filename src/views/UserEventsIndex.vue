@@ -4,16 +4,21 @@
     <!-- pasted content -->
     <section id="portfolio" class="p-0 info-effect">
       <div class="container">
-           <h1>{{ message }}</h1>
+           
         <!-- portfolio filter -->
         
         <!-- / portfolio filter -->
       </div><!-- / container -->
       <div class="container">
+        <div>
+          
+          <h1>{{ message }}</h1>
+        </div>
+        
         <h3 class="section-title hidden">WORK</h3>
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <!-- project -->
-       
+        
           <li v-for="hostingEvent in userEvents.hosting_events" class="col-md-6 col-lg-4 project project-box" data-groups='["illustrations"]'>
             <figure class="portfolio-item effect-info">
               <img :src="hostingEvent.img_url" alt="">

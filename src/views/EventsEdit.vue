@@ -2,12 +2,13 @@
   <div class="events-edit">
     <div class="container">
       <form v-on:submit.prevent="submit()">
-        <h1>Update Party</h1>
+        
         <img v-if="errors.length" src="https://http.cat/100">
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
+          <h1>Update Party</h1>
           <label>Title:</label> 
           <input type="text" class="form-control" v-model="event.title">
         </div>
@@ -17,9 +18,10 @@
         </div>
         <div class="form-group">
           <label>Details:</label><br>
-          <textarea cols="100" rows="10" v-model="event.details"></textarea>
+          <textarea class="form-control" cols="100" rows="10" v-model="event.details"></textarea>
           <!-- <input type="text" class="form-control" v-model="event.details"> -->
         </div>
+        <input type="hidden" id="timezone" name="timezone" value="-06:00">
         <div class="form-group">
           <label for="event-time">Date and Time:</label>
           <input type="datetime-local" id="event-time" 
@@ -83,9 +85,18 @@
     </div>
   </div>
 </template>
+<style>
+  input.form-control {
+    color: #495057 !important;
+  },
+  textarea.form-control {
+    color: #495057 !important;
+  }
+</style>
 
 <script>
 import axios from "axios";
+import moment from 'moment';
 
 export default {
   data: function() {
@@ -107,7 +118,7 @@ export default {
       formData.append("title", this.event.title);
       formData.append("short_description", this.event.short_description);
       formData.append("details", this.event.details);      
-      formData.append("time_start", this.event.time_start);
+      formData.append("time_start", moment(this.event.time_start).format());
       formData.append("duration", this.event.duration);
       formData.append("category_id", this.event.category_id);
       formData.append("kit_price", this.event.kit_price);

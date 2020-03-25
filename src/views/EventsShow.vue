@@ -8,6 +8,7 @@
         <div class="row">
           <div class="col-md-8 blog-content">
             <div class="blog block">
+              <h1>Event Details</h1>
               <img v-bind:src="event.img_url" alt="">
               <div class="post-content">
                 <div class="post-meta">
@@ -146,10 +147,7 @@
 #large {
   font-size: 1.6rem;
 }
- img {
-  width: 250px;
- }
- #map { top: 0; bottom: 0; width: 300px; height: 300px; }
+#map { top: 0; bottom: 0; width: 300px; height: 300px; }
 </style>
 
 <script>

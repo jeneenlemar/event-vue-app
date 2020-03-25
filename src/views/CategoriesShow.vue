@@ -13,7 +13,7 @@
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <!-- project -->
           <li v-for="event in events" class="col-md-6 col-lg-4 project project-box" data-groups='["illustrations"]'>
-            <figure class="portfolio-item effect-info">
+            <figure class="portfolio-item">
               <img :src="event.img_url" alt="">
               <div class="project-info text-center inner-space-2x bg-white rectangle no-border">
                 <h4 class="project-title mt-0 mb-3">{{ event.title }}</h4>
@@ -21,14 +21,7 @@
                 <p class="project-info-skill bg-transparent text-grey mb-2">{{ relativeDate(event.time_start) }}</p>
                 <router-link :to="`/events/${event.id}`" class="btn btn-primary pill">Details</router-link>
               </div><!-- / project-info -->
-              <figcaption>
-                <div class="hover-content">
-                  <div class="project-icons">
-                    <a href="images/project1.jpg" class="image-lightbox"><i class="fas fa-search"></i></a>
-                  </div><!-- / project-icons -->
-                </div><!-- / hover-content -->
-                <a class="project-link" href="single-project.html"></a><!-- / project-link -->
-              </figcaption>
+              
             </figure><!-- / portfolio-item -->
           </li><!-- / project --><!-- / project -->
         </ul> <!-- / portfolio -->

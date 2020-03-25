@@ -4,11 +4,12 @@
   <div class="login">
     <div class="container">
       <form v-on:submit.prevent="submit()">
-        <h1>Login</h1>
+        
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
+          <h1>Login</h1>
           <label>Email:</label>
           <input type="email" class="form-control" v-model="email">
         </div>

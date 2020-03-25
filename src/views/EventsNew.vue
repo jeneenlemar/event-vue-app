@@ -2,12 +2,13 @@
   <div class="events-new">
     <div class="container">
       <form v-on:submit.prevent="submit()">
-        <h1>New Party</h1>
+        
         <img v-if="errors.length" src="https://http.cat/100">
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
+          <h1>New Party</h1>
           <label>Title:</label> 
           <input type="text" class="form-control" v-model="title">
         </div>
@@ -17,8 +18,8 @@
         </div>
         <div class="form-group">
           <label>Details:</label><br>
-          
-          <textarea cols="100" rows="10" v-model="details"></textarea>
+
+          <textarea class="form-control" cols="100" rows="10" v-model="details"></textarea>
           <!-- <input type="text" class="form-control" v-model="details"> -->
         </div>
         <input type="hidden" id="timezone" name="timezone" value="-06:00">
@@ -82,6 +83,9 @@
 
 <style>
   input.form-control {
+    color: #495057 !important;
+  },
+  textarea.form-control {
     color: #495057 !important;
   }
 </style>
