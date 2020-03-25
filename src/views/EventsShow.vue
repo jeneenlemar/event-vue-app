@@ -16,19 +16,14 @@
                   <p class="text-sm"><i class="far fa text-primary fa-asterisk"></i>
                   Slots Remaining: {{ event.slots - event.attendees.length }}</p>
                 </div><!-- / post-meta -->
-                <h4 class="post-title text-bold">{{ event.title }}</h4>
-                <p class="mb-3">{{ event.details }}</p>
-                <!-- <p class="mb-3">Quisque molestie nisl vitae justo semper, non luctus purus pharetra. Nulla scelerisque nunc est, sed molestie velit lobortis vitae.</p>
-                <blockquote class="blockquote">
-                  <p class="mb-0">Suspendisse elit nunc, ornare eu dictum ut, consectetur eget turpis. Nam nec ex ac nunc mollis tincidunt. Sed ut luctus ante, vitae tempor velit. Maecenas eget dictum nisl. Proin imperdiet libero sem, ut consectetur felis aliquam sit amet.</p>
-                  <footer class="blockquote-footer">Someone Famous</footer>
-                </blockquote>
-                <h4 class="mb-3">Quisque consequat</h4>
-                <p>In lobortis massa tristique metus dictum hendrerit. Integer faucibus augue vitae arcu placerat, id eleifend odio semper. Etiam congue sed ex in cursus. Praesent at tempor turpis. In rhoncus congue euismod. Ut euismod ex eget bibendum porta.</p> -->
-                <button v-if="$parent.isLoggedIn() && !event.attending && (event.host.id != $parent.getUserId())" class="btn btn-primary pill" v-on:click="createUserEvent()">Join this Party</button>
+                <h2 class="post-title text-bold">{{ event.title }}</h2>
+                <p id="large" class="mb-3">{{ event.details }}</p>
+                
+                <button v-if="(event.slots - event.attendees.length)>0 && $parent.isLoggedIn() && !event.attending && (event.host.id != $parent.getUserId())" class="btn btn-primary pill" v-on:click="createUserEvent()">Join this Party</button>
                 <button v-if="event.attending && (event.host.id != $parent.getUserId())" class="btn btn-danger pill" v-on:click="destroyReservation">Cancel My Reservation To This Event</button>
                 <router-link v-if="event.host.id == $parent.getUserId()" :to="`/events/${event.id}/edit`" class="btn btn-primary pill" tag="button">Edit</router-link>
-                <!-- <button v-if="event.host.id == $parent.getUserId()" v-on:click="editEvent">Edit</button> -->
+               <p class="text-info" v-if="!$parent.isLoggedIn()">Please log in or sign up to join this wonderful event!</p>
+               
               </div><!-- / post-content -->
             </div><!-- / blog-block -->
 
@@ -148,6 +143,9 @@
 </template>
 
 <style>
+#large {
+  font-size: 1.6rem;
+}
  img {
   width: 250px;
  }

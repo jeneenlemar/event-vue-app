@@ -122,6 +122,7 @@ export default {
       formData.append("duration", this.duration);
       formData.append("category_id", this.categoryId);
       formData.append("kit_price", this.kitPrice);
+      formData.append("location_description", this.locationDescription);
       formData.append("address", this.address);
       if (this.image) {
         formData.append("image", this.image);

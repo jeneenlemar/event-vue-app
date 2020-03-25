@@ -27,9 +27,9 @@
             <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" :to="`/users/${getUserId()}`">PROFILE</router-link>
             </li>
-            <li v-if="isLoggedIn()" class="nav-item">
+            <!-- <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" :to="`/users/${getUserId()}/edit`">EDIT PROFILE</router-link>
-            </li>
+            </li> -->
             <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" to="/logout">LOGOUT</router-link>
             </li>
