@@ -74,7 +74,6 @@
           <label>Slots:</label>
           <input type="integer" class="form-control" v-model="event.slots">
         </div>
-        
         <input type="submit" class="btn btn-primary" value="Update Event">
       </form>
       <div>
@@ -117,20 +116,20 @@ export default {
       if (this.event.img_url) {
         formData.append("img_url", this.event.img_url);
       }
-    // submit: function() {
-    //   var params = {
-    //     title: this.event.title,
-    //     short_description: this.event.short_description,
-    //     details: this.event.details,
-    //     time_start: this.event.time_start,
-    //     duration: this.event.duration,
-    //     category_id: this.event.category_id,
-    //     kit_price: this.event.kit_price,
-    //     location_description: this.event.location_description,
-    //     address: this.event.address,
-    //     img_url: this.event.img_url,
-    //     slots: this.event.slots,
-    //   };
+        // submit: function() {
+        //   var params = {
+        //     title: this.event.title,
+        //     short_description: this.event.short_description,
+        //     details: this.event.details,
+        //     time_start: this.event.time_start,
+        //     duration: this.event.duration,
+        //     category_id: this.event.category_id,
+        //     kit_price: this.event.kit_price,
+        //     location_description: this.event.location_description,
+        //     address: this.event.address,
+        //     img_url: this.event.img_url,
+        //     slots: this.event.slots,
+        //   };
       axios
         .patch(`/api/events/${this.event.id}`, formData)
         .then(response => {

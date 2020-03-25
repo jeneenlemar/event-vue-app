@@ -63,7 +63,7 @@ export default {
     submit: function() {
       var formData = new FormData();
 
-      formData.append("first_name", this. user.first_name);
+      formData.append("first_name", this.user.first_name);
       formData.append("last_name", this.user.last_name);
       formData.append("email", this.user.email);      
       formData.append("address", this.user.address);
