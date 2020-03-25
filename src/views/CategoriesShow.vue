@@ -30,10 +30,6 @@
   </div>
 </template>
 
-<style>
-
-</style>
-
 <script>
 import axios from "axios";
 import Vue2Filters from 'vue2-filters';

@@ -146,13 +146,6 @@
     </div>
 </template>
 
-<style>
-#large {
-  font-size: 1.6rem;
-}
-#map { top: 0; bottom: 0; width: 300px; height: 300px; }
-</style>
-
 <script>
 
 import axios from 'axios';

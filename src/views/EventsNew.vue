@@ -81,14 +81,7 @@
   </div>
 </template>
 
-<style>
-  input.form-control {
-    color: #495057 !important;
-  },
-  textarea.form-control {
-    color: #495057 !important;
-  }
-</style>
+
 
 <script>
 import axios from "axios";

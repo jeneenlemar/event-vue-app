@@ -1,0 +1,12 @@
+input.form-control, textarea.form-control {
+  color: #495057 !important;
+}
+#large {
+  font-size: 1.6rem;
+}
+#map { 
+  top: 0; 
+  bottom: 0; 
+  width: 300px; 
+  height: 300px; 
+}
