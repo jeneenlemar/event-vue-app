@@ -16,8 +16,10 @@
           <input type="text" class="form-control" v-model="shortDescription">
         </div>
         <div class="form-group">
-          <label>Details:</label>
-          <input type="text" class="form-control" v-model="details">
+          <label>Details:</label><br>
+          
+          <textarea cols="100" rows="10" v-model="details"></textarea>
+          <!-- <input type="text" class="form-control" v-model="details"> -->
         </div>
         <input type="hidden" id="timezone" name="timezone" value="-06:00">
         <div class="form-group">
