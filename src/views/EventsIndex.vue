@@ -16,7 +16,7 @@
         <input class="form-control" placeholder="search" type="text" v-model="keywordFilter">  
       </div>
       <div>
-           <h1>Upcoming Events</h1>
+           <h3 class="section-title text-center mb-0">Upcoming Events</h3>
       </div>
       <div class="container">
 
@@ -65,7 +65,7 @@
   <!-- begin categories section -->
   <!-- / container -->
             <div class="container">
-               <h1>Categories</h1>
+               <h3 class="section-title text-center mb-0">Categories</h3>
                 <h3 class="section-title hidden">WORK</h3>
                 <ul class="row portfolio line-effect lightbox list-unstyled mb-0" id="grid">
                     <!-- project -->

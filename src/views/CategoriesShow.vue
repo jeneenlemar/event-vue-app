@@ -1,11 +1,11 @@
 <template>
   <div class="categories-show">
-
+  <div class="spacer-2x">&nbsp;</div>
 
 <section id="portfolio" class="p-0 info-effect">
       <div class="container">
         <!-- portfolio filter -->
-       <h1>{{ message }}</h1> 
+       <h3 class="section-title text-center mb-0">Events by Category</h3>
         <!-- / portfolio filter -->
       </div><!-- / container -->
       <div class="container">

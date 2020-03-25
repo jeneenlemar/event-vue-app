@@ -2,9 +2,10 @@
 
 <template>
   <div class="signup">
+    <div class="spacer-2x">&nbsp;</div>
     <div class="container">
       <form v-on:submit.prevent="submit()">
-        <h1>Signup</h1>
+        <h3 class="section-title text-center mb-0">Signup</h3>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>

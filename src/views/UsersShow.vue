@@ -1,15 +1,19 @@
 <template>
   <div class="users-show">
 
-  <!-- begin pasted content -->
-   <section id="portfolio" class="p-0 info-effect">
+    <div class="spacer-2x">&nbsp;</div>
+
+    <!-- begin pasted content -->
+    <section id="portfolio" class="p-0 info-effect">
       <div class="container">
         <!-- portfolio filter -->
-       <h1>{{ message }}</h1>
+       
         <!-- / portfolio filter -->
       </div><!-- / container -->
       <div class="container">
-        <h3 class="section-title hidden">WORK</h3>
+        <h3 class="section-title text-center mb-0">{{ message }}</h3>
+ 
+
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <!-- project -->
           

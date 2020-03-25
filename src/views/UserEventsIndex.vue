@@ -1,5 +1,6 @@
 <template>
   <div class="user_events-index">
+    <div class="spacer-2x">&nbsp;</div>
 
     <!-- pasted content -->
     <section id="portfolio" class="p-0 info-effect">
@@ -12,7 +13,7 @@
       <div class="container">
         <div>
           
-          <h1>{{ message }}</h1>
+          <h3 class="section-title text-center mb-0">Parties I'm Hosting</h3>
         </div>
         
         <h3 class="section-title hidden">WORK</h3>
@@ -47,7 +48,7 @@
 
       <!-- SECOND section for parties attending -->
       <div class="container">
-        <h1>{{message2}}</h1>
+        <h3 class="section-title text-center mb-0">Parties I'm Attending</h3>
         <h3 class="section-title hidden">WORK</h3>
         <ul class="row portfolio info-effect lightbox list-unstyled mb-0" id="grid">
           <!-- project -->

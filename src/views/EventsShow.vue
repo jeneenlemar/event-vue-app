@@ -8,7 +8,8 @@
         <div class="row">
           <div class="col-md-8 blog-content">
             <div class="blog block">
-              <h1>Event Details</h1>
+              <h3 class="section-title text-center mb-0">Party Details</h3>
+              <div class="spacer-2x">&nbsp;</div>
               <img v-bind:src="event.img_url" alt="">
               <div class="post-content">
                 <div class="post-meta">

@@ -8,7 +8,7 @@
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
-          <h1>Update Party</h1>
+          <h3 class="section-title text-center mb-0">Update Party</h3>
           <label>Title:</label> 
           <input type="text" class="form-control" v-model="event.title">
         </div>

@@ -2,6 +2,7 @@
 
 <template>
   <div class="login">
+    <div class="spacer-2x">&nbsp;</div>
     <div class="container">
       <form v-on:submit.prevent="submit()">
         
@@ -9,7 +10,7 @@
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
-          <h1>Login</h1>
+          <h3 class="section-title text-center mb-0">Login</h3>
           <label>Email:</label>
           <input type="email" class="form-control" v-model="email">
         </div>
