@@ -16,8 +16,9 @@
           <input type="text" class="form-control" v-model="event.short_description">
         </div>
         <div class="form-group">
-          <label>Details:</label>
-          <input type="text" class="form-control" v-model="event.details">
+          <label>Details:</label><br>
+          <textarea cols="100" rows="10" v-model="event.details"></textarea>
+          <!-- <input type="text" class="form-control" v-model="event.details"> -->
         </div>
         <div class="form-group">
           <label for="event-time">Date and Time:</label>
