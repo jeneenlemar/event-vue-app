@@ -76,10 +76,10 @@
           <label>Slots:</label>
           <input type="integer" class="form-control" v-model="event.slots">
         </div>
-        <input type="submit" class="btn btn-primary" value="Update Event">
+        <input type="submit" class="btn btn-primary pill" value="Update Event">
       </form>
       <div>
-         <button v-on:click="destroyEvent()">Cancel This Event</button>
+         <button class="btn btn-danger pill" v-on:click="destroyEvent()">Cancel Event</button>
       </div>
      
     </div>
@@ -152,10 +152,11 @@ export default {
         });
     },
     destroyEvent: function() {
-      axios.delete(`/api/events/${this.event.id}`).then(response => {
-        console.log(response.data);
-        this.$router.push("/user_events");
-      });
+      if (confirm("Are you sure you want to cancel this reservation?")) 
+        axios.delete(`/api/events/${this.event.id}`).then(response => {
+          console.log(response.data);
+          this.$router.push("/user_events");
+        });
     },
     setFile: function(event) {
       if (event.target.files.length > 0) {
